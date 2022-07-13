@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signupUser } from '../../actions/auth';
+import { signupUser } from '../../redux/actions/auth';
 
 class Signup extends React.Component {
-  state = {
-    email: '',
-    password: '',
-    errors: {status: {message: ''}}
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      errors: { status: { message: '' } },
+    };
+  }
 
   handleChange = (event) => {
     this.setState({
@@ -28,50 +31,48 @@ class Signup extends React.Component {
     return (
       <form
         onSubmit={this.handleSubmit}
-        className='w-11/12 max-w-2xl mx-auto mt-8'
+        className=""
       >
-        <h1 className='font-bold text-3xl mb-2'>Sign Up</h1>
-        <p className='h-8 text-red-400'>{this.state.errors.status.message}</p>
+        <h1 className="">Sign Up</h1>
+        <p className="">{this.state.errors.status.message}</p>
         <fieldset>
-          <label className='block uppercase mb-2' htmlFor='email'>
+          <label className="" htmlFor="email">
             Email:
           </label>
           <input
-            type='text'
-            name='email'
-            id='email'
-            className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
+            type="text"
+            name="email"
+            id="email"
+            className=""
             onChange={this.handleChange}
             value={this.state.email}
           />
         </fieldset>
         <fieldset>
-          <label className='block uppercase mb-2' htmlFor='password'>
+          <label className="" htmlFor="password">
             Password:
           </label>
           <input
-            type='password'
-            name='password'
-            id='password'
-            className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
+            type="password"
+            name="password"
+            id="password"
+            className=""
             onChange={this.handleChange}
             value={this.state.password}
           />
         </fieldset>
         <input
-          className='w-full text-center uppercase p-4 bg-blue-300 cursor-pointer mt-4'
-          type='submit'
-          value='Sign Up'
+          className=""
+          type="submit"
+          value="Sign Up"
         />
       </form>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatchSignupUser: (credentials) => dispatch(signupUser(credentials))
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  dispatchSignupUser: (credentials) => dispatch(signupUser(credentials)),
+});
 
 export default connect(null, mapDispatchToProps)(Signup);
