@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
@@ -35,7 +33,7 @@ const Login = ({ loggedIn }) => {
         </div>
         <div className="center">
           <div className="">
-            <h1 className="">Sign Up</h1>
+            <h1 className="">Log in</h1>
           </div>
           <form className="form" onSubmit={handleSubmit(onFormSubmit)}>
             <div className="inputbox">
