@@ -24,6 +24,7 @@ const Login = ({ loggedIn }) => {
 
   return (
     <main className="main">
+      <div className="effect" />
       <div className="showcase">
         {error && <p className="">{error}</p>}
         {errors.username && <p className="">Username is required</p>}

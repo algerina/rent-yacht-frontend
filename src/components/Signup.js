@@ -17,6 +17,7 @@ const Signup = () => {
 
   return (
     <main className="main">
+      <div className="effect" />
       <div className="showcase">
         <div className="logo"><img src={logo} alt="logo" /></div>
         <div className="center">
