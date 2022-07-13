@@ -15,7 +15,7 @@ const getToken = () => {
   return false;
 };
 
-export const checkAuth = () => (dispatch) => fetch('http://localhost:3001/v1/current_user', {
+export const checkAuth = () => (dispatch) => fetch('http://localhost:3001/current_user', {
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

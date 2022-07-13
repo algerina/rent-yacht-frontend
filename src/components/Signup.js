@@ -1,78 +1,62 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { signupUser } from '../../redux/actions/auth';
+/* eslint-disable react/jsx-props-no-spreading */
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router-dom';
+import { signupUser } from '../redux/actions/auth';
 
-class Signup extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-      errors: { status: { message: '' } },
-    };
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+const Signup = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { register, handleSubmit } = useForm();
+  const onFormSubmit = (data) => {
+    console.log(data);
+    dispatch(signupUser(data));
+    navigate('/');
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const { email, password } = this.state;
-    this.props
-      .dispatchSignupUser({ email, password })
-      .then(() => this.props.history.push('/'))
-      .catch((errors) => this.setState({ errors }));
-  };
+  return (
+    <main className="">
+      <div className="">
+        <div className="">
+          <div className="">
+            <h2 className="">Sign Up</h2>
+          </div>
+          <form className="" onSubmit={handleSubmit(onFormSubmit)}>
+            <div className="">
+              <input
+                className=""
+                type="text"
+                placeholder="Username"
+                {...register('username', { required: 'Username is required' })}
+              />
+            </div>
+            <div className="">
+              <input
+                className=""
+                type="email"
+                placeholder="Email"
+                {...register('email', { required: 'Email is required' })}
+              />
+            </div>
+            <div className="">
+              <input
+                className=""
+                type="password"
+                placeholder="Password"
+                {...register('password', { required: 'Password is required' })}
+              />
+            </div>
+            <input
+              className=""
+              type="submit"
+              value="Sign Up"
+            />
+            <Link className="" to="/login">Log In</Link>
+          </form>
+        </div>
+      </div>
+    </main>
+  );
+};
 
-  render() {
-    return (
-      <form
-        onSubmit={this.handleSubmit}
-        className=""
-      >
-        <h1 className="">Sign Up</h1>
-        <p className="">{this.state.errors.status.message}</p>
-        <fieldset>
-          <label className="" htmlFor="email">
-            Email:
-          </label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            className=""
-            onChange={this.handleChange}
-            value={this.state.email}
-          />
-        </fieldset>
-        <fieldset>
-          <label className="" htmlFor="password">
-            Password:
-          </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            className=""
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
-        </fieldset>
-        <input
-          className=""
-          type="submit"
-          value="Sign Up"
-        />
-      </form>
-    );
-  }
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  dispatchSignupUser: (credentials) => dispatch(signupUser(credentials)),
-});
-
-export default connect(null, mapDispatchToProps)(Signup);
+export default Signup;
