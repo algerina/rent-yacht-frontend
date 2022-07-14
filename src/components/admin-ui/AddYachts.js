@@ -2,10 +2,28 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useForm } from 'react-hook-form';
 import logo from '../../assets/Yacht-logo.svg';
 
 function AddYachts() {
+  const { reset } = useForm();
   const [yacht, setYacht] = useState({});
+
+  const notifySuccess = () => toast('Yacht added successfully', {
+    position: 'top-center',
+    autoClose: 15000,
+    pauseOnHover: true,
+    draggable: true,
+  });
+
+  const notifyError = () => toast.error('Error! check error on the logs.', {
+    position: 'top-right',
+    autoClose: 15000,
+    pauseOnHover: true,
+    draggable: true,
+  });
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -22,7 +40,6 @@ function AddYachts() {
     data.append('name', yacht.name);
     data.append('description', yacht.description);
     data.append('price', yacht.price);
-    console.log(data);
     console.log(data.get('image_url'));
 
     axios.post('http://127.0.0.1:3001/v1/yachts/', data, {
@@ -31,11 +48,14 @@ function AddYachts() {
       },
     })
       .then((response) => {
+        notifySuccess();
         console.log(response);
       })
       .catch((error) => {
         console.log(error);
+        notifyError();
       });
+    reset();
   };
 
   return (
@@ -64,6 +84,7 @@ function AddYachts() {
             ADD YACHT
           </Button>
         </Form>
+        <ToastContainer />
       </div>
     </main>
   );
