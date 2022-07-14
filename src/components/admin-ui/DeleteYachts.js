@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import './admin-ui.css';
 
 const DeleteYachts = () => {
   const [yachts, setYachts] = useState([]);
@@ -12,11 +13,12 @@ const DeleteYachts = () => {
     axios.get('http://localhost:3001/v1/yachts.json')
       .then((response) => {
         setYachts(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [yachts.length]);
+  }, []);
   // Delete Yachts from API
 
   const handleDeleteYacht = (id) => (event) => {
@@ -25,7 +27,7 @@ const DeleteYachts = () => {
     axios.delete(`http://localhost:3001/v1/yachts/${id}`)
       .then((response) => {
         console.log(response);
-        const included = [...yachts].filter((yacht) => yacht.id !== id);
+        const included = [...yachts].filter((yacht) => yacht.attributes.id !== id);
         setYachts(included);
       })
       .catch((error) => {
@@ -34,13 +36,13 @@ const DeleteYachts = () => {
   };
 
   const yachtList = yachts.map((yacht) => (
-    <tr key={yacht.name}>
-      <td>{yacht.name}</td>
-      <td>
+    <tr key={yacht.attributes.name}>
+      <td className="fs125 d-flex justify-content-between px-5">
+        {yacht.attributes.name}
         <Button
           type="button"
-          variant="secondary"
-          onClick={handleDeleteYacht(yacht.id)}
+          variant="info"
+          onClick={handleDeleteYacht(yacht.attributes.id)}
         >
           Delete
         </Button>
@@ -49,19 +51,21 @@ const DeleteYachts = () => {
   ));
 
   return (
-    <Container className="missions-container">
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Yacht Name</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {yachtList}
-        </tbody>
-      </Table>
-    </Container>
+    <div>
+      <div className="effect" />
+      <Container className="align-items-center justify-content-center z1">
+        <Table striped borderless hover responsive className="align-items-center my-5 mx-auto w-80 shadow p-3 bg-body rounded">
+          <thead>
+            <tr>
+              <th className="fs125 my-2">Yachts</th>
+            </tr>
+          </thead>
+          <tbody>
+            {yachtList}
+          </tbody>
+        </Table>
+      </Container>
+    </div>
   );
 };
 
