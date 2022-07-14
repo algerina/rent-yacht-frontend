@@ -1,0 +1,23 @@
+.w-80 {
+  width: 80%;
+  max-width: 700px;
+}
+
+.fs125 {
+  font-size: 1.25rem;
+}
+
+.effect {
+  background-image: url("../../assets/yacht-background-r.jpg");
+  background-repeat: round;
+  height: 100vh;
+  filter: blur(5px);
+}
+
+.z1 {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  z-index: 10;
+}
+
