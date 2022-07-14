@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import DeleteYachts from './components/admin-ui/DeleteYachts';
 import AddYachts from './components/admin-ui/AddYachts';
+import Yacht from './components/yachts/Yacht';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -18,8 +19,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/add" element={<AddYachts />} />
         <Route path="/delete" element={<DeleteYachts />} />
+        <Route path="/yacht" element={<Yacht />} />
         <Route element={<ProtectedRoutes isAllowed={loggedIn} authChecked={authChecked} redirectPath="/login" />}>
-          <Route path="/" element={<h1>Yachts Page</h1>} />
         </Route>
       </Routes>
     </Router>
