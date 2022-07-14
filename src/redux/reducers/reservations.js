@@ -5,7 +5,7 @@ const initialState = [];
 const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_MY_RESERVATIONS:
-      return action.payload;
+      return [...state, ...action.payload];
     default:
       return state;
   }

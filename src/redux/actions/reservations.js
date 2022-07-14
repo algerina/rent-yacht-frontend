@@ -11,8 +11,9 @@ const getReservations = () => async (dispatch) => {
     },
   });
   if (response.ok) {
-    const { data } = await response.json();
-    dispatch({ type: GET_MY_RESERVATIONS, payload: data });
+    const data = await response.json();
+    const reservations = data.map((reservation) => reservation.attributes)
+    dispatch({ type: GET_MY_RESERVATIONS, payload: reservations });
   }
 };
 
