@@ -28,7 +28,6 @@ function AddYachts() {
   const handleChange = (e) => {
     e.preventDefault();
     setYacht({ ...yacht, [e.target.name]: e.target.value });
-    console.log(yacht);
   };
 
   const handleSubmit = (e) => {
@@ -40,19 +39,16 @@ function AddYachts() {
     data.append('name', yacht.name);
     data.append('description', yacht.description);
     data.append('price', yacht.price);
-    console.log(data.get('image_url'));
 
     axios.post('http://127.0.0.1:3001/v1/yachts/', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     })
-      .then((response) => {
+      .then(() => {
         notifySuccess();
-        console.log(response);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         notifyError();
       });
     reset();

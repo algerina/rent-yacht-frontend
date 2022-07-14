@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 import { AUTHENTICATED, NOT_AUTHENTICATED } from '.';
 
 const setToken = (token) => {
@@ -77,11 +78,11 @@ export const logoutUser = () => (dispatch) => fetch('http://localhost:3001/logou
   },
 }).then((res) => {
   if (res.ok) {
-    return dispatch({ type: NOT_AUTHENTICATED });
+    localStorage.removeItem('token');
+      <Navigate to="/login" replace />;
   }
   return res.json().then((errors) => {
     dispatch({ type: NOT_AUTHENTICATED });
     return Promise.reject(errors);
   });
 });
-// line 15 included for testing purposes
