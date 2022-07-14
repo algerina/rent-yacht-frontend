@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { getToken } from '../redux/actions/auth';
+import './reservation-form.css';
 
 const ReservationForm = () => {
   const [error, setError] = useState();
@@ -21,11 +22,12 @@ const ReservationForm = () => {
         Authorization: getToken(),
       },
       body: JSON.stringify({
-        user_id: currentUser.id,
-        yacht_id: parseInt(id, 10),
-        city: data.city,
-        start_date: data.start_date,
-        end_date: data.end_date,
+        reservation: {
+          yacht_id: parseInt(id, 10),
+          city: data.city,
+          start_date: data.start_date,
+          days_number: data.days_number.split(' ')[0],
+        },
       }),
     });
 
@@ -37,24 +39,62 @@ const ReservationForm = () => {
   };
 
   return (
-    <main className="d-flex flex-column align-items-center">
-      <div className="d-flex flex-column col-8 border border-dark my-5">
+    <main className="main-2">
+      <div className="effect-2" />
+      <div className="showcase-2">
         <div className="mx-5">
-          <h2 className="my-5">BOOK A RESERVATION</h2>
+          <h2 className="my-5 head-form">BOOK A RESERVATION</h2>
         </div>
         {error && <p className="mx-5">{error}</p>}
         <form className="mx-5" onSubmit={handleSubmit(onFormSubmit)}>
-          <div className="form-group my-3">
-            <input className="form-control form-control-lg" type="city" placeholder="City" {...register('city', { required: 'City is required' })} />
+          <div className="form-group d-flex gap-3 flex-wrap">
+            <label htmlFor="city">
+              Username
+              <input className="form-control form-control-lg" type="city" value={currentUser.username} disabled />
+            </label>
+            <label htmlFor="city">
+              Yacht name
+              <input className="form-control form-control-lg" type="city" value="Athena Yacht" disabled />
+            </label>
           </div>
-          <div className="form group my-3">
-            <input className="form-control form-control-lg" type="start_date" placeholder="Start date" {...register('start_date', { required: 'Start_date is required' })} />
+          <div className="d-flex justify-content-between mt-3 flex-wrap">
+            <div className="box">
+              <input
+                type="date"
+                name="Select a date"
+                {...register('start_date', { required: 'Start_date is required' })}
+              />
+            </div>
+            <div className="box">
+              <select {...register('city', { required: 'Start_date is required' })}>
+                <option selected="true" disabled="disabled" label="Port of departure?" />
+                <option>Rotterdam</option>
+                <option>Buenos Aires</option>
+                <option>Los Angeles</option>
+                <option>Alexandria</option>
+                <option>Lisbon</option>
+                <option>Shanghai</option>
+              </select>
+            </div>
+            <div className="box">
+              <select {...register('days_number', { required: 'days_number is required' })}>
+                <option selected="true" disabled="disabled" label="How many days?" />
+                <option>1 day</option>
+                <option>2 days</option>
+                <option>3 days</option>
+                <option>4 days</option>
+                <option>5 days</option>
+                <option>6 days</option>
+                <option>7 days</option>
+              </select>
+            </div>
           </div>
-          <div className="form-group my-3">
-            <input className="form-control form-control-lg" type="end_date" placeholder="End date" {...register('end_date', { required: 'End-date is required' })} />
+          <div className="action d-flex justify-content-center gap-3 my-3 flex-wrap">
+            <input className="reserve" type="submit" value="Add Reservation" />
+            <Link className="my-reserve" to="/reservations">
+              Your Reservations
+            </Link>
           </div>
-          <input className="btn btn-primary my-5 mx-5" type="submit" value="Add Reservation" />
-          <Link className="" to="/reservations">Your Reservations</Link>
         </form>
       </div>
     </main>
