@@ -51,28 +51,5 @@ const Yacht = () => {
     </Carousel>
   );
 };
-// const Yacht = () => {
-
-//   const url = "https://images.pexels.com/photos/427726/pexels-photo-427726.jpeg"
-//   return ( <div >
-
-//     <div className="yacht">
-//     <img src={url} alt="" />
-//    </div>
-//    <div className="logo"><img src={logo} alt="logo" /></div>
-//     <div>
-//       <h4>name</h4>
-//       <h4>description</h4>
-//       <h4>price</h4>
-//       <button type="button"
-//           variant="primary"
-//           >
-//             Reserve
-//             </button>
-
-//     </div>
-
-//   </div>)
-// };
 
 export default Yacht;
