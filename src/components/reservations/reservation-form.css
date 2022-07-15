@@ -20,7 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(72,187,181, 0.6);
+  background-color: rgb(72, 187, 181, 0.6);
   top: 0;
   right: 0;
   left: 0;
@@ -31,7 +31,8 @@
   letter-spacing: 15px;
 }
 
-label, .head-form {
+label,
+.head-form {
   color: #fff;
 }
 
@@ -50,7 +51,8 @@ select {
   padding-right: 2rem !important;
 }
 
-input[type="date"], .box select {
+input[type="date"],
+.box select {
   background-color: #0563af;
   color: white;
   padding: 12px;
@@ -70,7 +72,8 @@ input[type="date"], .box select {
   padding: 30px;
 }
 
-.reserve, .my-reserve {
+.reserve,
+.my-reserve {
   border-radius: 25px;
   padding: 15px;
   border: 0;
@@ -92,7 +95,8 @@ input[type="date"], .box select {
 }
 
 @media only screen and (max-width: 1000px) {
-  input[type="date"], .box select {
+  input[type="date"],
+  .box select {
     width: 300px;
     margin-bottom: 10px;
   }
