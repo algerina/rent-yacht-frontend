@@ -15,34 +15,33 @@ const Reservations = () => {
 
   return (
     <main className="main">
-      <div className="background">
-        <div className="foreground">
-          <table className="table table-hover">
-            <thead className="text-white bg-primary">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Yacht Name</th>
-                <th scope="col">City</th>
-                <th scope="col">Start Date</th>
-                <th scope="col">Days</th>
-                <th scope="col">Cost</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white">
-              {reservations.map((reservation, id) => (
-                <SingleReservation
-                  key={id}
-                  id={reservation.id}
-                  city={reservation.city}
-                  startDate={reservation.start_date}
-                  daysNumber={reservation.days_number}
-                  cost={reservation.cost}
-                />
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <div className="background" />
+      <div className="foreground">
+        <table className="table table-hover">
+          <thead className="text-white bg-primary">
+            <tr>
+              <th scope="col">Yacht Name</th>
+              <th scope="col">City</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">Days</th>
+              <th scope="col">Cost</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="bg-white">
+            {reservations.map((reservation) => (
+              <SingleReservation
+                key={reservation.id}
+                id={reservation.id}
+                city={reservation.city}
+                startDate={reservation.start_date}
+                daysNumber={reservation.days_number}
+                cost={reservation.cost}
+                yachtId={reservation.yacht_id}
+              />
+            ))}
+          </tbody>
+        </table>
       </div>
     </main>
   );
