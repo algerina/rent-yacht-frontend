@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
@@ -8,10 +8,28 @@ import './reservation-form.css';
 
 const ReservationForm = () => {
   const [error, setError] = useState();
+  const [yachtName, setYachtName] = useState('');
   const { id } = useParams();
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.auth);
   const { register, handleSubmit } = useForm();
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(`http://localhost:3001/v1/yachts/${id}`, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: getToken(),
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setYachtName(data.name);
+      }
+    })();
+  }, []);
 
   const onFormSubmit = async (data) => {
     const response = await fetch('http://localhost:3001/v1/reservations', {
@@ -48,13 +66,13 @@ const ReservationForm = () => {
         {error && <p className="mx-5">{error}</p>}
         <form className="mx-5" onSubmit={handleSubmit(onFormSubmit)}>
           <div className="form-group d-flex gap-3 flex-wrap">
-            <label htmlFor="city">
+            <label htmlFor="username">
               Username
-              <input className="form-control form-control-lg" type="city" value={currentUser.username} disabled />
+              <input className="form-control form-control-lg" type="username" value={currentUser.username} disabled />
             </label>
-            <label htmlFor="city">
-              Yacht name
-              <input className="form-control form-control-lg" type="city" value="Athena Yacht" disabled />
+            <label htmlFor="yacht">
+              Yacht
+              <input className="form-control form-control-lg" type="yacht" value={yachtName} disabled />
             </label>
           </div>
           <div className="d-flex justify-content-between mt-3 flex-wrap">
