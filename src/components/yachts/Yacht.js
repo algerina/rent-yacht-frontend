@@ -5,6 +5,8 @@ import logo from "../../assets/Yacht club logo vintage anchor sea logotype opaqu
 import { useSelector, useDispatch } from "react-redux";
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AiFillTwitterCircle, AiOutlineInstagram } from "react-icons/ai";
+import { BsFacebook } from "react-icons/bs";
 import fetchYachts, {
   fetchSingleYacht,
 } from "../../redux/actions/yachtActions";
@@ -37,21 +39,22 @@ const Yacht = () => {
           <Carousel.Caption className="caption">
             <h2 className="card text-secondary">Name: {yat.name}</h2>
             <h3 className="carde text-secondary">Description: {yat.description}</h3>
-            <h3 className="card text-secondary">
-              Price:
-              {" $"}
-              {yat.price}
-            </h3>
+            <span className="icons text-secondary">
+              <AiFillTwitterCircle />
+              <AiOutlineInstagram />
+              <BsFacebook />
+            </span>
             {/* <h3 className="card"> {yat.image}</h3> */}
             <button className="btn" variant="success" type="button" size="lg" onClick={handleClick}>
               <Link to={"/reserve/" + yat.id} className="reserve app" id={yat.id}>
                 {" "}
-                Reserve
+                View
               </Link>
             </button>
           </Carousel.Caption>
         </Carousel.Item>
       ))}
+
     </Carousel>
   );
 };

@@ -5,6 +5,13 @@
   background: white;
 }
 
+.icons {
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .header {
   text-align: center;
   margin-top:10px
@@ -34,22 +41,19 @@ button {
 .carde {
     font-size: medium;
     font-weight: bolder;
-    color: #077ff7;
   }
 
-  
 .carousel-inner > .item {
   position: relative;
   max-height: 600px;
 }
 
-  
+/*   
   .carousel-inner {
-    /* background-image: url(../images/docbg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-  }
+  } */
 
 
   .yachtimg {
@@ -90,13 +94,6 @@ button {
     font-size: medium;
     font-weight: bolder;
   }
-/* 
-  .btn {
-    border-radius: 1rem;
-    margin-bottom: 1.5rem;
-    font-size: larger;
-    background: #077ff7;
-  } */
 
   .btn:hover {
     background: #f9fafb;
@@ -219,7 +216,6 @@ button {
   }
 
   .carousel-inner {
-
     background-repeat: no-repeat;
     background-size: cover;
   }
