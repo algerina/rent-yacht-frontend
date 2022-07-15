@@ -25,22 +25,26 @@ const Yacht = () => {
 
   const url =
     "https://images.pexels.com/photos/427726/pexels-photo-427726.jpeg";
+  
   return ( 
+
     <Carousel className="yachtMargin">
+        <h2 className="header">Yachts for charter</h2>
+        <p>Your great escape tailored by WHISHYACHT</p>
       {yachts.map((yat) => (
-        <Carousel.Item interval={2000} key={yat.id} className="main">
+        <Carousel.Item interval={2000} key={yat.id} className="main maincaro">
           <img className="yachtimg" src={url} alt="Slide one" />
           <Carousel.Caption className="caption">
-            <h3 className="card text-secondary">Name: {yat.name}</h3>
-            <h3 className="card text-secondary">Description: {yat.description}</h3>
+            <h2 className="card text-secondary">Name: {yat.name}</h2>
+            <h3 className="carde text-secondary">Description: {yat.description}</h3>
             <h3 className="card text-secondary">
               Price:
               {" $"}
               {yat.price}
             </h3>
             {/* <h3 className="card"> {yat.image}</h3> */}
-            <button className="btn" type="button" onClick={handleClick}>
-              <Link to={"/reserve/" + yat.id} className="reserve" id={yat.id}>
+            <button className="btn" variant="success" type="button" size="lg" onClick={handleClick}>
+              <Link to={"/reserve/" + yat.id} className="reserve app" id={yat.id}>
                 {" "}
                 Reserve
               </Link>

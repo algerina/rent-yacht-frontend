@@ -5,34 +5,25 @@
   background: white;
 }
 
-.logo {
-  width: 20%; 
-  padding: 10px;
-}
-
-.yacht {
-  margin: 2rem auto;
-  transition: all 0.3s linear;
-  border-radius: 0.3rem;
+.header {
   text-align: center;
+  margin-top:10px
 }
 
-.yacht img {
-  border-radius: 50%;
-  width: 43%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-top: 2.5rem;
-  margin-left: 17rem;
+p {
+text-align: center;
+color: gray;
 }
 
-.yacht h4 {
-  font-size: medium;
-  font-weight: bolder;
-  color: #077ff7;
-  font-style: italic;
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  background-color: #98c22a;
 }
 
+
+button {
+  color: green;
+  background-color: #98c22a;
+}
 
 @media (max-width: 768px) {
   .yachtMargin {
@@ -46,34 +37,66 @@
     color: #077ff7;
   }
 
+  
+.carousel-inner > .item {
+  position: relative;
+  max-height: 600px;
+}
+
+  
+  .carousel-inner {
+    /* background-image: url(../images/docbg.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+
   .yachtimg {
-    width: 30%;
+    width: 50%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 2.5rem;
-    margin-left: 17rem;
+    margin-left: 7rem;
     border-radius: 4rem;
   }
 
   .caption {
     position: absolute;
-    right: -1%;
-    bottom: -5.75rem;
-    left: 0%;
+    right: 33%;
+    bottom: -2.75rem;
+    left: 24%;
     padding-top: 1.25rem;
     padding-bottom: 0.25rem;
     color: #fff;
     text-align: center;
     background-color: rgb(220 220 223);
-    margin-bottom: -7rem;
+    margin-bottom: 4rem;
   }
 
+  
+  .app {
+    text-decoration: none;
+    font-size: smaller;
+    font-size: medium;
+    font-weight: bolder;
+    color: #f9fafb;
+  }
+
+  .app :hover {
+    background: white;
+    text-decoration: none;
+    font-size: smaller;
+    font-size: medium;
+    font-weight: bolder;
+  }
+/* 
   .btn {
     border-radius: 1rem;
     margin-bottom: 1.5rem;
     font-size: larger;
     background: #077ff7;
-  }
+  } */
 
   .btn:hover {
     background: #f9fafb;
@@ -96,12 +119,38 @@
     font-size: medium;
     font-weight: bolder;
   }
+
+  
+  .main {
+    text-decoration: none;
+    font-size: smaller;
+    font-size: medium;
+    font-weight: bolder;
+    color: #f9fafb;
+  }
 }
 
 @media (min-width: 768px) {
   .yachtMargin {
-    margin-left: 2rem;
-    margin-right:2rem;
+    /* margin-left: 2rem;
+    margin-right:2rem; */
+    margin-left: 232px;
+  }
+
+  .maincaro {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+
+  .yachtimg {
+    width: 40%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 2rem;
+    margin-left: 17rem;
+    border-radius: 20rem;
   }
 
   .main {
@@ -113,14 +162,12 @@
   .card {
     font-size: medium;
     font-weight: bolder;
-    color: #077ff7;
   }
 
   .btn {
     border-radius: 1rem;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
     font-size: larger;
-    background: #077ff7;
   }
 
   .btn :hover {
@@ -130,13 +177,6 @@
   }
 
   .reserve {
-    /* text-decoration: none;
-    font-size: smaller;
-    font-size: medium;
-    font-weight: bolder;
-    background-color: #077ff7;
-    color: #194e83;
-    border-radius: 2px; */
     width: 40%;
     font-family: sans-serif;
     background: #98c22a;
@@ -168,7 +208,7 @@
     color: #fff;
     text-align: center;
     background-color: rgb(220 220 223);
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
   }
 
   .carde {
@@ -178,12 +218,9 @@
     font-style: italic;
   }
 
-  .yachtimg {
-    width: 43%;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-top: 2.5rem;
-    margin-left: 17rem;
-    border-radius: 4rem;
+  .carousel-inner {
+
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
