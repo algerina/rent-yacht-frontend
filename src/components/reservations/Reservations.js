@@ -21,6 +21,7 @@ const Reservations = () => {
             <thead className="text-white bg-primary">
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Yacht Name</th>
                 <th scope="col">City</th>
                 <th scope="col">Start Date</th>
                 <th scope="col">Days</th>

@@ -28,6 +28,7 @@ function SingleReservation({
   return (
     <tr>
       <td className="px-3">{id + 1}</td>
+      <td>Athena</td>
       <td>{city}</td>
       <td>{startDate}</td>
       <td>{daysNumber}</td>
