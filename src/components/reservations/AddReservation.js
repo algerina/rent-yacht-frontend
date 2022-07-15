@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { getToken } from '../redux/actions/auth';
+import { getToken } from '../../redux/actions/auth';
 import './reservation-form.css';
 
 const ReservationForm = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { getToken } from '../redux/actions/auth';
+import { getToken } from '../../redux/actions/auth';
 
 function SingleReservation({
   city, cost, id, startDate, daysNumber,
@@ -27,7 +27,7 @@ function SingleReservation({
 
   return (
     <tr>
-      <td>{id + 1}</td>
+      <td className="px-3">{id + 1}</td>
       <td>{city}</td>
       <td>{startDate}</td>
       <td>{daysNumber}</td>

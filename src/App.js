@@ -3,8 +3,8 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import useAuth from './hooks/useAuth';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import AddReservation from './components/AddReservation';
-import Reservations from './components/Reservations';
+import AddReservation from './components/reservations/AddReservation';
+import Reservations from './components/reservations/Reservations';
 
 function App() {
   const { authChecked, loggedIn } = useAuth();

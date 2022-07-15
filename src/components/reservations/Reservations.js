@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import getReservations from '../redux/actions/reservations';
+import getReservations from '../../redux/actions/reservations';
 import SingleReservation from './SingleReservation';
 import './reservations-display.css';
 
@@ -22,8 +22,8 @@ const Reservations = () => {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">City</th>
-                <th scope="col">Start date</th>
-                <th scope="col">Number of days</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Days</th>
                 <th scope="col">Cost</th>
                 <th scope="col">Actions</th>
               </tr>

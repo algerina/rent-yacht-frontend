@@ -4,7 +4,7 @@
 }
 
 .background {
-  background-image: url("../assets/yacht-background-r.jpg");
+  background-image: url("../../assets/yacht-background-r.jpg");
   background-repeat: round;
   height: 100vh;
 }
