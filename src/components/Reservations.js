@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import getReservations from '../redux/actions/reservations';
+import SingleReservation from './SingleReservation';
 
 const Reservations = () => {
   const dispatch = useDispatch();
@@ -20,17 +21,19 @@ const Reservations = () => {
           <th scope="col">Start date</th>
           <th scope="col">Number of days</th>
           <th scope="col">Cost</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
         {reservations.map((reservation, id) => (
-          <tr key={id}>
-            <td>{id + 1}</td>
-            <td>{reservation.city}</td>
-            <td>{reservation.start_date}</td>
-            <td>{reservation.days_number}</td>
-            <td>{reservation.cost}</td>
-          </tr>
+          <SingleReservation
+            key={id}
+            id={reservation.id}
+            city={reservation.city}
+            startDate={reservation.start_date}
+            daysNumber={reservation.days_number}
+            cost={reservation.cost}
+          />
         ))}
       </tbody>
     </table>
