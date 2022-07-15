@@ -1,0 +1,27 @@
+.main {
+  height: 100vh;
+  position: relative;
+}
+
+.background {
+  background-image: url("../assets/yacht-background-r.jpg");
+  background-repeat: round;
+  height: 100vh;
+}
+
+.foreground {
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.table {
+  position: relative;
+  margin-left: 15%;
+  margin-right: 15%;
+}
