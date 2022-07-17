@@ -179,6 +179,10 @@ button {
     margin-left: 232px;
   }
 
+  .e-card-horizontal {
+    margin-left: 12rem;
+  }
+
   .informations {
     display: flex;
     flex-direction: row;
