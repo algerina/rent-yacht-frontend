@@ -11,7 +11,7 @@ import fetchYachts, {
   fetchSingleYacht,
 } from "../../redux/actions/yachtActions";
 
-const Yacht = () => { 
+const Yacht = () => {
   const dispatch = useDispatch();
   const yacht = useSelector((state) => state.yacht);
   const { yachts } = yacht;
@@ -27,26 +27,36 @@ const Yacht = () => {
 
   const url =
     "https://images.pexels.com/photos/427726/pexels-photo-427726.jpeg";
-  
-  return ( 
 
+  return (
     <Carousel className="yachtMargin">
-        <h2 className="header">Yachts for charter</h2>
-        <p>Your great escape tailored by WHISHYACHT</p>
+      <h2 className="header">Yachts for charter</h2>
+      <p>Your great escape tailored by WHISHYACHT</p>
       {yachts.map((yat) => (
         <Carousel.Item interval={2000} key={yat.id} className="main maincaro">
           <img className="yachtimg" src={url} alt="Slide one" />
           <Carousel.Caption className="caption">
             <h2 className=" text-secondary">Name: {yat.name}</h2>
-            <h3 className="carde text-secondary">Description: {yat.description}</h3>
+            <h3 className="carde text-secondary">
+              Description: {yat.description}
+            </h3>
             <span className="icons text-secondary">
               <AiFillTwitterCircle />
               <AiOutlineInstagram />
               <BsFacebook />
             </span>
-            {/* <h3 className="card"> {yat.image}</h3> */}
-            <button className="btn" variant="success" type="button" size="lg" onClick={handleClick}>
-              <Link to={"/reserve/" + yat.id} className="reserve app" id={yat.id}>
+            <button
+              className="btn"
+              variant="success"
+              type="button"
+              size="lg"
+              onClick={handleClick}
+            >
+              <Link
+                to={"/reserve/" + yat.id}
+                className="reserve app"
+                id={yat.id}
+              >
                 {" "}
                 View
               </Link>
@@ -54,7 +64,6 @@ const Yacht = () => {
           </Carousel.Caption>
         </Carousel.Item>
       ))}
-
     </Carousel>
   );
 };
