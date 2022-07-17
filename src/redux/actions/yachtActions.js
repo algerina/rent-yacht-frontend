@@ -27,7 +27,11 @@ const fetchSingleYachtSuccess = (yacht) => ({
 });
 
 export const fetchSingleYacht = (id) => (dispatch) => {
-  axios.get(`${baseURL}/v1/yachts/${id}`).then((response) => {
+  const header = {
+    "Content-Type": "application/json",
+    Authorization: localStorage.getItem("token"),
+  };
+  axios.get(`${baseURL}/v1/yachts/${id}`, header).then((response) => {
     const yacht = response.data;
     dispatch(fetchSingleYachtSuccess(yacht));
   });

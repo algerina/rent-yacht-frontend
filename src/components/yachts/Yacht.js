@@ -37,7 +37,7 @@ const Yacht = () => {
         <Carousel.Item interval={2000} key={yat.id} className="main maincaro">
           <img className="yachtimg" src={url} alt="Slide one" />
           <Carousel.Caption className="caption">
-            <h2 className="card text-secondary">Name: {yat.name}</h2>
+            <h2 className=" text-secondary">Name: {yat.name}</h2>
             <h3 className="carde text-secondary">Description: {yat.description}</h3>
             <span className="icons text-secondary">
               <AiFillTwitterCircle />
