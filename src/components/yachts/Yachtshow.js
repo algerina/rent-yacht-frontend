@@ -36,16 +36,15 @@ const Yachtshow = () => {
 
   if (yacht) {
     return (
-      <div style={{ margin: `50px`, display: `flex`, flexDirection: `row`, justifyContent: `center` }}>
-        <div className="e-card e-card-horizontal" style={{ width: `400px` }}>
-        <img className="yachtimg" src={url} alt="Slide one" style={{ height: `180px` }} />
+      <div style={{ margin: `50px`, display: `flex`, justifyContent: `center` }}>
+        <div className="e-card e-card-horizontal">
+        <img className="showtimg" src={url} alt="Slide one" style={{ height: `180px` }} />
         <div className="e-card-stacked">
         <div className="e-card-header">{yacht.name}</div>
-        {/* <h2>{yacht.name}</h2> */}
         <div className="e-card-header-caption">{yacht.description}</div>
         <div className="e-card-header-title">Price: {yacht.price}</div>
         <img  src={wheel} alt="colors" className="wheel" />
-        <button className="btn" variant="success" type="button" size="lg">
+        <button className="btn cardbutton e-card" variant="success" type="button" size="lg">
               <Link to={"/reserve/" + yacht.id} className="reserve" id={yacht.id}>
                 {" "}
                 Reserve
