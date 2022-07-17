@@ -44,7 +44,7 @@ const Yachtshow = () => {
         <div className="e-card-header-caption">{yacht.description}</div>
         <div className="e-card-header-title">Price: {yacht.price}</div>
         <img  src={wheel} alt="colors" className="wheel" />
-        <button className="btn cardbutton e-card" variant="success" type="button" size="lg">
+        <button className="btn cardbutton" variant="success" type="button" size="lg">
               <Link to={"/reserve/" + yacht.id} className="reserve" id={yacht.id}>
                 {" "}
                 Reserve

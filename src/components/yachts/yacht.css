@@ -6,7 +6,12 @@
 }
 
 .wheel {
-  width: 30%;
+  width: 20%;
+  margin: 2rem;
+}
+
+.cardbutton {
+  margin-top: 10rem;
 }
 
 .icons {
@@ -30,7 +35,6 @@ p {
 .carousel-control-next-icon, .carousel-control-prev-icon {
   background-color: #98c22a;
 }
-
 
 .reserve {
   width: 40%;
@@ -75,6 +79,7 @@ button {
     gap: 5rem;
     text-align: center;
     font-size: x-large;
+    font-weight: bold;
   }
 
   .cardbutton {
@@ -186,10 +191,18 @@ button {
     max-height: 600px;
   }
 
+  .e-card-stacked {
+    margin-top: 8rem;
+    margin-left: 7rem;
+  }
+
   .e-card {
+    margin-top: 1rem;
+    margin-left: 5rem;
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    font-weight: bold;
   }
 
   .yachtimg {
@@ -239,6 +252,13 @@ button {
     padding-bottom: 0.25rem;
     color: #fff;
     text-align: center;
+  }
+
+  .showtimg {
+    height:80%;
+    margin-top: 6rem;
+    margin-left: 1rem;
+    border-radius: 3rem;
   }
 
   .carde {
