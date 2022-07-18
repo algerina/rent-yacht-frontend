@@ -32,7 +32,8 @@ p {
   color: gray;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
   background-color: #98c22a;
 }
 
@@ -83,8 +84,8 @@ button {
   }
 
   .cardbutton {
- margin-top: 1rem;;
-   margin-right: 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
   }
 
   .card,
@@ -259,7 +260,7 @@ button {
   }
 
   .showtimg {
-    height:80%;
+    height: 80%;
     margin-top: 6rem;
     margin-left: 1rem;
     border-radius: 3rem;

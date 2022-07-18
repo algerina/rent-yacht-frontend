@@ -1,15 +1,13 @@
-import React, { useEffect } from "react";
-import "./yacht.css";
-import Button from "react-bootstrap/Button";
-import logo from "../../assets/Yacht club logo vintage anchor sea logotype opaque.svg";
-import { useSelector, useDispatch } from "react-redux";
-import { Carousel } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { AiFillTwitterCircle, AiOutlineInstagram } from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
+import React, { useEffect } from 'react';
+import './yacht.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { AiFillTwitterCircle, AiOutlineInstagram } from 'react-icons/ai';
+import { BsFacebook } from 'react-icons/bs';
 import fetchYachts, {
   fetchSingleYacht,
-} from "../../redux/actions/yachtActions";
+} from '../../redux/actions/yachtActions';
 
 const Yacht = () => {
   const dispatch = useDispatch();
@@ -25,8 +23,7 @@ const Yacht = () => {
     dispatch(fetchYachts());
   }, []);
 
-  const url =
-    "https://images.pexels.com/photos/427726/pexels-photo-427726.jpeg";
+  const url = 'https://images.pexels.com/photos/427726/pexels-photo-427726.jpeg';
 
   return (
     <Carousel className="yachtMargin">
@@ -36,9 +33,14 @@ const Yacht = () => {
         <Carousel.Item interval={2000} key={yat.id} className="main maincaro">
           <img className="yachtimg" src={url} alt="Slide one" />
           <Carousel.Caption className="caption">
-            <h2 className=" text-secondary">Name: {yat.name}</h2>
+            <h2 className=" text-secondary">
+              Name:
+              {yat.name}
+            </h2>
             <h3 className="carde text-secondary">
-              Description: {yat.description}
+              Description:
+              {' '}
+              {yat.description}
             </h3>
             <span className="icons text-secondary">
               <AiFillTwitterCircle />
@@ -53,11 +55,11 @@ const Yacht = () => {
               onClick={handleClick}
             >
               <Link
-                to={"/reserve/" + yat.id}
+                to={`/reserve/${yat.id}`}
                 className="reserve app"
                 id={yat.id}
               >
-                {" "}
+                {' '}
                 View
               </Link>
             </button>

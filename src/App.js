@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login loggedIn={loggedIn} />} />
         <Route path="/signup" element={<Signup />} />
-        
+
         <Route element={<ProtectedRoutes isAllowed={loggedIn} authChecked={authChecked} redirectPath="/login" />}>
           <Route path="/add" element={<AddYachts />} />
           <Route path="/delete" element={<DeleteYachts />} />
