@@ -17,6 +17,22 @@
 .z1 {
   position: absolute;
   top: 10%;
-  left: 8%;
   z-index: 10;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase {
+  width: 70%;
+}
+
+@media only screen and (max-width: 800px) {
+  .showcase {
+    width: 100%;
+  }
 }

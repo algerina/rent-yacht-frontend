@@ -8,9 +8,16 @@ import './admin-ui.css';
 const DeleteYachts = () => {
   const [yachts, setYachts] = useState([]);
 
+  const request = axios.create({
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: localStorage.getItem('token'),
+    },
+  });
+
   useEffect(() => {
     // Get Yachts from API
-    axios.get('http://localhost:3001/v1/yachts.json')
+    request.get('http://localhost:3001/v1/yachts')
       .then((response) => {
         setYachts(response.data);
         console.log(response.data);
@@ -24,7 +31,7 @@ const DeleteYachts = () => {
   const handleDeleteYacht = (id) => (event) => {
     event.preventDefault();
 
-    axios.delete(`http://localhost:3001/v1/yachts/${id}`)
+    request.delete(`http://localhost:3001/v1/yachts/${id}`)
       .then((response) => {
         console.log(response);
         const included = [...yachts].filter((yacht) => yacht.attributes.id !== id);
@@ -51,7 +58,7 @@ const DeleteYachts = () => {
   ));
 
   return (
-    <div>
+    <main>
       <div className="effect" />
       <Container className="align-items-center justify-content-center z1">
         <Table striped borderless hover responsive className="align-items-center my-5 mx-auto w-80 shadow p-3 bg-body rounded">
@@ -65,7 +72,7 @@ const DeleteYachts = () => {
           </tbody>
         </Table>
       </Container>
-    </div>
+    </main>
   );
 };
 

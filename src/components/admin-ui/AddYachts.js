@@ -5,7 +5,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
-import logo from '../../assets/Yacht-logo.svg';
+import './admin-ui.css';
 
 function AddYachts() {
   const { reset } = useForm();
@@ -58,7 +58,6 @@ function AddYachts() {
     <main className="main">
       <div className="effect" />
       <div className="showcase">
-        <div className="logo"><img src={logo} alt="logo" /></div>
         <Form onSubmit={handleSubmit} className="bg-light rounded-3 shadow p-4 bg-body">
           <Form.Group className="mb-3" controlId="formAddYacht">
             <Form.Label>Yacht Name</Form.Label>
