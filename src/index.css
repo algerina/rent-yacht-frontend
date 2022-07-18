@@ -30,3 +30,19 @@ code {
   color: #fff;
   background: dodgerblue;
 }
+
+#root > main {
+  width: 80%;
+  float: right;
+}
+
+@media only screen and (max-width: 800px) {
+  .active {
+    color: #000;
+    background: none;
+  }
+
+  #root > main {
+    width: 100%;
+  }
+}
