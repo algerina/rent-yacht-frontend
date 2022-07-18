@@ -4,6 +4,8 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import useAuth from './hooks/useAuth';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import AddReservation from './components/reservations/AddReservation';
+import Reservations from './components/reservations/Reservations';
 import DeleteYachts from './components/admin-ui/DeleteYachts';
 import AddYachts from './components/admin-ui/AddYachts';
 import Yacht from './components/yachts/Yacht';
@@ -20,10 +22,12 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         
         <Route element={<ProtectedRoutes isAllowed={loggedIn} authChecked={authChecked} redirectPath="/login" />}>
-        <Route path="/add" element={<AddYachts />} />
-        <Route path="/delete" element={<DeleteYachts />} />
-        <Route path="/yacht/:yacht_id" element={<Yachtshow />} />
-        <Route path="/yacht" element={<Yacht />} />
+          <Route path="/add" element={<AddYachts />} />
+          <Route path="/delete" element={<DeleteYachts />} />
+          <Route path="/reserve/:id" element={<AddReservation />} />
+          <Route path="/reservations" element={<Reservations />} />
+          <Route path="/yacht/:yacht_id" element={<Yachtshow />} />
+          <Route path="/" element={<Yacht />} />
         </Route>
       </Routes>
     </Router>
