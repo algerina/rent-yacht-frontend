@@ -41,7 +41,7 @@ export const signupUser = (credentials) => (dispatch) => fetch('http://localhost
     setToken(res.headers.get('Authorization'));
     return res
       .json()
-      .then((userJson) => dispatch({ type: AUTHENTICATED, payload: userJson }));
+      .then((userJson) => dispatch({ type: AUTHENTICATED, payload: userJson.data }));
   }
   return res.json().then((errors) => {
     dispatch({ type: NOT_AUTHENTICATED });
@@ -61,7 +61,7 @@ export const loginUser = (credentials) => (dispatch) => fetch('http://localhost:
     setToken(res.headers.get('Authorization'));
     return res
       .json()
-      .then((userJson) => dispatch({ type: AUTHENTICATED, payload: userJson }));
+      .then((userJson) => dispatch({ type: AUTHENTICATED, payload: userJson.data }));
   }
   return res.json().then((errors) => {
     dispatch({ type: NOT_AUTHENTICATED });

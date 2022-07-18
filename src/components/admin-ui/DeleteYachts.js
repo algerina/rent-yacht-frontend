@@ -20,11 +20,8 @@ const DeleteYachts = () => {
     request.get('http://localhost:3001/v1/yachts')
       .then((response) => {
         setYachts(response.data);
-        console.log(response.data);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => error);
   }, []);
   // Delete Yachts from API
 
@@ -32,14 +29,11 @@ const DeleteYachts = () => {
     event.preventDefault();
 
     request.delete(`http://localhost:3001/v1/yachts/${id}`)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         const included = [...yachts].filter((yacht) => yacht.attributes.id !== id);
         setYachts(included);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => error);
   };
 
   const yachtList = yachts.map((yacht) => (

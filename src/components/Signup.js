@@ -50,7 +50,6 @@ const Signup = () => {
 
   useEffect(() => {
     if (signUpError.length !== 0) {
-      console.log(signUpError);
       signUpError.forEach((error) => notifyError(error[1]));
     }
   }, [signUpError]);
