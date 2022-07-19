@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
@@ -7,6 +9,11 @@ import './admin-ui.css';
 
 const DeleteYachts = () => {
   const [yachts, setYachts] = useState([]);
+  const { currentUser } = useSelector((state) => state.auth);
+
+  if (currentUser.role !== 'admin') {
+    return <Navigate to="/" replace />;
+  }
 
   const request = axios.create({
     headers: {

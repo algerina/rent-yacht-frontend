@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
@@ -10,6 +12,11 @@ import './admin-ui.css';
 function AddYachts() {
   const { reset } = useForm();
   const [yacht, setYacht] = useState({});
+  const { currentUser } = useSelector((state) => state.auth);
+
+  if (currentUser.role !== 'admin') {
+    return <Navigate to="/" replace />;
+  }
 
   const notifySuccess = () => toast('Yacht added successfully', {
     position: 'top-center',
