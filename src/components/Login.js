@@ -1,35 +1,61 @@
 /* eslint-disable react/jsx-props-no-spreading */
-
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import { loginUser } from '../redux/actions/auth';
 import './registeration-form.css';
+import 'react-toastify/dist/ReactToastify.css';
 import logo from '../assets/Yacht-logo.svg';
 
 const Login = ({ loggedIn }) => {
   if (loggedIn) return <Navigate to="/" replace />;
 
+  const [logInError, setLogInError] = useState([]);
+
   const dispatch = useDispatch();
-  const [error, setError] = useState(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onFormSubmit = (data) => dispatch(loginUser(data)).catch(() => setError('Invalid credentials. Try again'));
+  const notifyError = (error) => toast.error(error, {
+    position: 'top-right',
+    autoClose: 15000,
+    pauseOnHover: true,
+    draggable: true,
+  });
+
+  const onFormSubmit = (data) => {
+    dispatch(loginUser(data)).catch((err) => notifyError(err.error));
+  };
+
+  const isEmpty = Object.keys(errors).length === 0;
+
+  const updateErrors = () => {
+    const newErrors = [];
+    handleSubmit(onFormSubmit);
+    if (!isEmpty) {
+      Object.entries(errors).forEach(([key, value]) => {
+        newErrors.push([key, value.message]);
+      });
+      setLogInError(newErrors);
+    }
+  };
+
+  useEffect(() => {
+    if (logInError.length !== 0) {
+      logInError.forEach((error) => notifyError(error[1]));
+    }
+  }, [logInError]);
 
   return (
-    <main className="main">
+    <div className="main">
       <div className="effect" />
       <div className="showcase">
-        {error && <p className="">{error}</p>}
-        {errors.username && <p className="">Username is required</p>}
-        {errors.email && <p className="">Email is required</p>}
-        {errors.password && <p className="">Password is required</p>}
         <div className="logo">
           <img src={logo} alt="logo" />
         </div>
@@ -57,7 +83,7 @@ const Login = ({ loggedIn }) => {
               <span>Password</span>
             </div>
             <div className="submit">
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" onClick={() => updateErrors()} />
               <Link className="login" to="/signup">
                 Sign up
               </Link>
@@ -65,7 +91,8 @@ const Login = ({ loggedIn }) => {
           </form>
         </div>
       </div>
-    </main>
+      <ToastContainer />
+    </div>
   );
 };
 
