@@ -17,7 +17,6 @@ const Reservations = React.lazy(() => import('./components/reservations/Reservat
 const Yacht = React.lazy(() => import('./components/yachts/Yacht'));
 const Yachtshow = React.lazy(() => import('./components/yachts/Yachtshow'));
 
-
 function App() {
   const { authChecked, loggedIn } = useAuth();
 
