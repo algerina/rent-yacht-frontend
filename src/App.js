@@ -4,7 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Spinner } from 'react-bootstrap';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import useAuth from './hooks/useAuth';
-<<<<<<< HEAD
 import Signup from './components/Signup';
 import Login from './components/Login';
 import AddReservation from './components/reservations/AddReservation';
@@ -13,8 +12,6 @@ import DeleteYachts from './components/admin-ui/DeleteYachts';
 import AddYachts from './components/admin-ui/AddYachts';
 import Yacht from './components/yachts/Yacht';
 import Yachtshow from './components/yachts/Yachtshow';
-=======
->>>>>>> ed3250698e3a25b45bd2e2b1474573cfb21263ee
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Signup = React.lazy(() => import('./components/Signup'));
@@ -59,7 +56,6 @@ function App() {
         </Routes>
       </Router>
     </React.Suspense>
->>>>>>> ed3250698e3a25b45bd2e2b1474573cfb21263ee
   );
 }
 
