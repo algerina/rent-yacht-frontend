@@ -4,14 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Spinner } from 'react-bootstrap';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import useAuth from './hooks/useAuth';
-// import Signup from './components/Signup';
-// import Login from './components/Login';
-// import AddReservation from './components/reservations/AddReservation';
-// import Reservations from './components/reservations/Reservations';
-// import DeleteYachts from './components/admin-ui/DeleteYachts';
-// import AddYachts from './components/admin-ui/AddYachts';
-import Yacht from './components/yachts/Yacht';
-import Yachtshow from './components/yachts/Yachtshow';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Signup = React.lazy(() => import('./components/Signup'));
@@ -22,6 +14,9 @@ const AddYachts = React.lazy(() => import('./components/admin-ui/AddYachts'));
 const DeleteYachts = React.lazy(() => import('./components/admin-ui/DeleteYachts'));
 const AddReservation = React.lazy(() => import('./components/reservations/AddReservation'));
 const Reservations = React.lazy(() => import('./components/reservations/Reservations'));
+const Yacht = React.lazy(() => import('./components/yachts/Yacht'));
+const Yachtshow = React.lazy(() => import('./components/yachts/Yachtshow'));
+
 
 function App() {
   const { authChecked, loggedIn } = useAuth();
