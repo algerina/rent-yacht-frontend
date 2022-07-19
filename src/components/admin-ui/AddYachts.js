@@ -49,7 +49,7 @@ function AddYachts() {
 
     axios.post('http://127.0.0.1:3001/v1/yachts/', data, {
       headers: {
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token'),
       },
     })

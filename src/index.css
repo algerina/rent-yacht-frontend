@@ -26,7 +26,7 @@ code {
     monospace;
 }
 
-.active {
+li > .active {
   color: #fff;
   background: dodgerblue;
 }
@@ -37,7 +37,7 @@ code {
 }
 
 @media only screen and (max-width: 800px) {
-  .active {
+  li > .active {
     color: #000;
     background: none;
   }
