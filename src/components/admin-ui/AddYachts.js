@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
-import logo from '../../assets/Yacht-logo.svg';
+import './admin-ui.css';
 
 function AddYachts() {
   const { reset } = useForm();
   const [yacht, setYacht] = useState({});
+  const { currentUser } = useSelector((state) => state.auth);
+
+  if (currentUser.role !== 'admin') {
+    return <Navigate to="/" replace />;
+  }
 
   const notifySuccess = () => toast('Yacht added successfully', {
     position: 'top-center',
@@ -28,7 +35,6 @@ function AddYachts() {
   const handleChange = (e) => {
     e.preventDefault();
     setYacht({ ...yacht, [e.target.name]: e.target.value });
-    console.log(yacht);
   };
 
   const handleSubmit = (e) => {
@@ -36,24 +42,23 @@ function AddYachts() {
     const data = new FormData();
     const img = document.getElementById('image_url');
 
-    data.append('image_url', img.files[0]);
+    data.append('image', img.files[0]);
     data.append('name', yacht.name);
     data.append('description', yacht.description);
     data.append('price', yacht.price);
-    console.log(data.get('image_url'));
 
     axios.post('http://127.0.0.1:3001/v1/yachts/', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
+        Authorization: localStorage.getItem('token'),
       },
     })
-      .then((response) => {
+      .then(() => {
         notifySuccess();
-        console.log(response);
       })
       .catch((error) => {
-        console.log(error);
         notifyError();
+        console.log(error);
       });
     reset();
   };
@@ -62,7 +67,6 @@ function AddYachts() {
     <main className="main">
       <div className="effect" />
       <div className="showcase">
-        <div className="logo"><img src={logo} alt="logo" /></div>
         <Form onSubmit={handleSubmit} className="bg-light rounded-3 shadow p-4 bg-body">
           <Form.Group className="mb-3" controlId="formAddYacht">
             <Form.Label>Yacht Name</Form.Label>

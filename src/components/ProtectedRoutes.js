@@ -3,7 +3,7 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
 const ProtectedRoutes = ({ isAllowed, authChecked, redirectPath }) => {
-  if (!authChecked) return <p>Loading...</p>;
+  if (!authChecked) return null;
   if (!isAllowed) return <Navigate to={redirectPath} replace />;
   return <Outlet />;
 };
