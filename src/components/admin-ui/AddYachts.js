@@ -42,7 +42,7 @@ function AddYachts() {
     const data = new FormData();
     const img = document.getElementById('image_url');
 
-    data.append('image_url', img.files[0]);
+    data.append('image', img.files[0]);
     data.append('name', yacht.name);
     data.append('description', yacht.description);
     data.append('price', yacht.price);
@@ -50,13 +50,15 @@ function AddYachts() {
     axios.post('http://127.0.0.1:3001/v1/yachts/', data, {
       headers: {
         'Content-Type': 'multipart/form-data',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(() => {
         notifySuccess();
       })
-      .catch(() => {
+      .catch((error) => {
         notifyError();
+        console.log(error);
       });
     reset();
   };
