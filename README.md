@@ -9,7 +9,7 @@
 
 ![screenshot](./src/assets/Yacht-logo-2.svg)
 <hr>
-## Description
+##Description
 
 > This is  a Web application where users should sign in to rent a Yacht from a list then reserve it for a determined period, users can then see their reservations or cancel them.
 
@@ -59,6 +59,8 @@ Back-end
 - Rswag
 
 ## Live demo
+
+[LiveDemo](https://62d85bdd46314705734cc8a9--wishyacht.netlify.app/yacht/3)
 
 ## Getting Started
 
