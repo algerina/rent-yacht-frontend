@@ -15,9 +15,9 @@ const Yachtshow = () => {
       headers: {
         'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token'),
-      }
-    })
-    
+      },
+    });
+
     request
       .get(`http://localhost:3001/v1/yachts/${id}`)
       .then((response) => {
@@ -26,8 +26,6 @@ const Yachtshow = () => {
       });
   }, []);
 
-  const url = 'https://images.pexels.com/photos/427726/pexels-photo-427726.jpeg';
-
   if (yacht) {
     return (
       <div style={{ margin: '50px', display: 'flex', justifyContent: 'flex-end' }}>
@@ -35,10 +33,14 @@ const Yachtshow = () => {
           <img className="showtimg" src={yacht.image_url} alt="Slide one" style={{ height: '180px' }} />
           <div className="e-card-stacked">
             <div className="e-card-header">{yacht.name}</div>
-            <div className="e-card-header-caption">Description: {yacht.description}</div>
+            <div className="e-card-header-caption">
+              Description:
+              {yacht.description}
+            </div>
             <div className="e-card-header-title">
               Price:
-              ${yacht.price}
+              $
+              {yacht.price}
             </div>
             <img src={wheel} alt="colors" className="wheel" />
             <button className="btn cardbutton" variant="success" type="button" size="lg">
