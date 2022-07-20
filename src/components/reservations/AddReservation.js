@@ -16,7 +16,7 @@ const ReservationForm = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`http://localhost:3001/v1/yachts/${id}`, {
+      const response = await fetch(`https://wishyacht-api.herokuapp.com/v1/yachts/${id}`, {
         method: 'GET',
         headers: {
           Accept: 'application/json',
@@ -26,13 +26,14 @@ const ReservationForm = () => {
       });
       if (response.ok) {
         const data = await response.json();
-        setYachtName(data.name);
+        console.log(data);
+        setYachtName(data.attributes.name);
       }
     })();
   }, []);
 
   const onFormSubmit = async (data) => {
-    const response = await fetch('http://localhost:3001/v1/reservations', {
+    const response = await fetch('https://wishyacht-api.herokuapp.com/v1/reservations', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

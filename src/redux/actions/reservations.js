@@ -2,7 +2,7 @@ import { GET_MY_RESERVATIONS } from '.';
 import { getToken } from './auth';
 
 const getReservations = () => async (dispatch) => {
-  const response = await fetch('http://localhost:3001/v1/reservations', {
+  const response = await fetch('https://wishyacht-api.herokuapp.com/v1/reservations', {
     method: 'GET',
     headers: {
       Accept: 'application/json',

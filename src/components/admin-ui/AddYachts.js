@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
@@ -11,11 +11,12 @@ import './admin-ui.css';
 
 function AddYachts() {
   const { reset } = useForm();
+  const navigate = useNavigate();
   const [yacht, setYacht] = useState({});
   const { currentUser } = useSelector((state) => state.auth);
 
   if (currentUser.role !== 'admin') {
-    return <Navigate to="/" replace />;
+    navigate('/');
   }
 
   const notifySuccess = () => toast('Yacht added successfully', {
@@ -47,14 +48,15 @@ function AddYachts() {
     data.append('description', yacht.description);
     data.append('price', yacht.price);
 
-    axios.post('http://127.0.0.1:3001/v1/yachts/', data, {
+    axios.post('https://wishyacht-api.herokuapp.com/v1/yachts/', data, {
       headers: {
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token'),
       },
     })
       .then(() => {
         notifySuccess();
+        navigate('/delete');
       })
       .catch((error) => {
         notifyError();
@@ -70,19 +72,19 @@ function AddYachts() {
         <Form onSubmit={handleSubmit} className="bg-light rounded-3 shadow p-4 bg-body">
           <Form.Group className="mb-3" controlId="formAddYacht">
             <Form.Label>Yacht Name</Form.Label>
-            <Form.Control type="text" htmlFor="name" name="name" placeholder="Enter Yacht Name" onChange={handleChange} />
+            <Form.Control type="text" htmlFor="name" name="name" placeholder="Enter Yacht Name" onChange={handleChange} required />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formAddYacht">
             <Form.Label>Description</Form.Label>
-            <Form.Control type="textarea" htmlFor="descripion" name="description" placeholder="Enter Yacht Description" onChange={handleChange} />
+            <Form.Control type="textarea" htmlFor="descripion" name="description" placeholder="Enter Yacht Description" onChange={handleChange} required />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formAddYacht">
             <Form.Label>Price</Form.Label>
-            <Form.Control type="number" htmlFor="price" name="price" placeholder="Enter Yacht Price" onChange={handleChange} />
+            <Form.Control type="number" htmlFor="price" name="price" placeholder="Enter Yacht Price" onChange={handleChange} required />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formAddYacht">
             <Form.Label>Image</Form.Label>
-            <input type="file" id="image_url" name="image_url" placeholder="Select Image" />
+            <input type="file" id="image_url" name="image_url" placeholder="Select Image" required />
           </Form.Group>
           <Button variant="primary" type="submit">
             ADD YACHT

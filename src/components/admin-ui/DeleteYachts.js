@@ -24,7 +24,7 @@ const DeleteYachts = () => {
 
   useEffect(() => {
     // Get Yachts from API
-    request.get('http://localhost:3001/v1/yachts')
+    request.get('https://wishyacht-api.herokuapp.com/v1/yachts')
       .then((response) => {
         setYachts(response.data);
       })
@@ -35,7 +35,7 @@ const DeleteYachts = () => {
   const handleDeleteYacht = (id) => (event) => {
     event.preventDefault();
 
-    request.delete(`http://localhost:3001/v1/yachts/${id}`)
+    request.delete(`https://wishyacht-api.herokuapp.com/v1/yachts/${id}`)
       .then(() => {
         const included = [...yachts].filter((yacht) => yacht.attributes.id !== id);
         setYachts(included);

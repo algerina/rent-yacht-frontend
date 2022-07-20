@@ -51,7 +51,7 @@ function Navbar({ currentUser }) {
   };
 
   const handleLogout = async () => {
-    const response = await fetch('http://localhost:3001/logout', {
+    const response = await fetch('https://wishyacht-api.herokuapp.com/logout', {
       method: 'delete',
       headers,
     });

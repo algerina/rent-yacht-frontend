@@ -1,0 +1,87 @@
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.main__header > h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.main__header > p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(59 54 54 / 42%);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.main__header > hr {
+  border-top: 4px dotted rgb(59 54 54 / 60%);
+  width: 80%;
+  margin: 1rem auto;
+  background: none;
+}
+
+/* Yacht Card */
+
+.linkImg {
+  cursor: pointer;
+}
+
+.cardImage img {
+  height: 100%;
+  width: 100%;
+}
+
+.cardInfo > h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cardInfo > p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(59 54 54 / 42%);
+  text-align: center;
+}
+
+.cardInfo > hr {
+  border-top: 4px dotted rgb(59 54 54 / 60%);
+  width: 80%;
+  margin: 1rem auto;
+  background: none;
+}
+
+.cardInfo__icons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10%;
+}
+
+.cardInfo__icons > svg {
+  color: rgb(59 54 54 / 42%);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.cardInfo__icons > svg:hover {
+  color: rgb(59 54 54 / 100%);
+  cursor: pointer;
+}

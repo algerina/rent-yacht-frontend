@@ -11,7 +11,7 @@ function SingleReservation({
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`http://localhost:3001/v1/yachts/${yachtId}`, {
+      const response = await fetch(`https://wishyacht-api.herokuapp.com/v1/yachts/${yachtId}`, {
         method: 'GET',
         headers: {
           Accept: 'application/json',
@@ -21,13 +21,13 @@ function SingleReservation({
       });
       if (response.ok) {
         const data = await response.json();
-        setYachtName(data.name);
+        setYachtName(data.attributes.name);
       }
     })();
   }, []);
 
   const deleteReservation = async () => {
-    const response = await fetch(`http://localhost:3001/v1/reservations/${id}`, {
+    const response = await fetch(`https://wishyacht-api.herokuapp.com/v1/reservations/${id}`, {
       method: 'DELETE',
       headers: {
         Accept: 'application/json',
