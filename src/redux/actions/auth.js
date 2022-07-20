@@ -58,6 +58,7 @@ export const loginUser = (credentials) => (dispatch) => fetch('http://localhost:
   body: JSON.stringify({ user: credentials }),
 }).then((res) => {
   if (res.ok) {
+    console.log(res);
     setToken(res.headers.get('Authorization'));
     return res
       .json()
