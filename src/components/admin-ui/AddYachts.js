@@ -48,7 +48,7 @@ function AddYachts() {
     data.append('description', yacht.description);
     data.append('price', yacht.price);
 
-    axios.post('http://127.0.0.1:3001/v1/yachts/', data, {
+    axios.post('https://wishyacht-api.herokuapp.com/v1/yachts/', data, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token'),

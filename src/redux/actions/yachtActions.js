@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_YACHTS_SUCCESS, FETCH_SINGLE_YACHT_SUCCESS } from './index';
 
-const baseURL = 'http://localhost:3001';
+const baseURL = 'https://wishyacht-api.herokuapp.com';
 
 const fetchYachtsSuccess = (yachts) => ({
   type: FETCH_YACHTS_SUCCESS,
