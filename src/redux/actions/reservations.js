@@ -14,7 +14,36 @@ const getReservations = () => async (dispatch) => {
     const data = await response.json();
     const reservations = data.map((reservation) => reservation.attributes);
     dispatch({ type: GET_MY_RESERVATIONS, payload: reservations });
+  } else {
+    dispatch({ type: GET_MY_RESERVATIONS, payload: [] });
   }
 };
+
+export const cancelReservation = (id) => async (dispatch) => {
+  const response = await fetch(`https://wishyacht-api.herokuapp.com/v1/reservations/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: getToken(),
+    },
+  });
+  if (response.ok) {
+    dispatch(getReservations());
+  }
+};
+
+// const response = await fetch(`https://wishyacht-api.herokuapp.com/v1/reservations/${id}`, {
+//   method: 'DELETE',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//     Authorization: getToken(),
+//   },
+// });
+// navigate(0);
+// if (response.ok) {
+//   navigate('/reservations');
+// }
 
 export default getReservations;
