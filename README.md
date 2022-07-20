@@ -7,7 +7,7 @@
 
 # WISHYACHT
 
-![screenshot](/src/assets/yacht-logo.svg)
+![screenshot](./src/assets/Yacht-logo-2.svg)
 <hr>
 ## Description
 
@@ -34,7 +34,7 @@ Admins are allowed:
  
 ## Back-end Repository 
 
-[ReactApp](https://github.com/algerina/rent-yacht)
+[RailsApp](https://github.com/algerina/rent-yacht)
 
 
 ## Built With
