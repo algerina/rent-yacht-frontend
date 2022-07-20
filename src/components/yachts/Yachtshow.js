@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './yacht.css';
+import './yachtshow.css';
 import { Link, useParams } from 'react-router-dom';
-import wheel from '../../assets/colorWheel.JPG';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
 
 const Yachtshow = () => {
   const params = useParams();
@@ -26,32 +28,29 @@ const Yachtshow = () => {
       });
   }, []);
 
+
   if (yacht) {
     return (
-      <div style={{ margin: '50px', display: 'flex', justifyContent: 'flex-end' }}>
-        <div className="e-card e-card-horizontal">
-          <img className="showtimg" src={yacht.image_url} alt="Slide one" style={{ height: '180px' }} />
-          <div className="e-card-stacked">
-            <div className="e-card-header">{yacht.name}</div>
-            <div className="e-card-header-caption">
-              Description:
-              {yacht.description}
-            </div>
-            <div className="e-card-header-title">
-              Price:
-              $
-              {yacht.price}
-            </div>
-            <img src={wheel} alt="colors" className="wheel" />
-            <button className="btn cardbutton" variant="success" type="button" size="lg">
+<div className="yacht-card">
+  <div className="img-wrap">
+  <img className="single-yacht" src={yacht.image_url} alt="single-yacht" />
+  </div>
+  <div className="card-button"> 
+<Card className="text-box" style={{ width: '15rem' }}>
+      <Card.Header><span className="name">{yacht.name}</span></Card.Header>
+      <ListGroup variant="flush">
+        <ListGroup.Item><span>Description: </span>{yacht.description}</ListGroup.Item>
+        <ListGroup.Item> <span>Price: </span> ${yacht.price}</ListGroup.Item>
+      </ListGroup>
+    </Card>
+    <Button  className="show-button" type="button" style={{ width: '15rem' }}>
               <Link to={`/reserve/${yacht.id}`} className="reserve" id={yacht.id}>
                 {' '}
                 Reserve
               </Link>
-            </button>
-          </div>
-        </div>
-      </div>
+              </Button>
+              </div>
+</div>
     );
   }
   return (<h1>Page not found!</h1>);
