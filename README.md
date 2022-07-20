@@ -7,17 +7,16 @@
 
 # WISHYACHT
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./MIT.md)
-
-
+![screenshot](./src/assets/yacht-logo.svg)
 <hr>
-
 ## Description
+
 > This is  a Web application where users should sign in to rent a Yacht from a list then reserve for a determined period, users can then see their reservations or cancel them.
 <hr>
 
 
 ## Api Documentation
+
 >You can review the documentation for the API [here]().
 <hr>
 
@@ -29,6 +28,28 @@
 
 ## Built With
 
+Front-end
+- [react](https://reactjs.org/) 
+- [redux-toolkit](https://redux-toolkit.js.org/) 
+- [react-router](https://reactrouter.com/)
+
+Back-end
+- ![rails version](https://img.shields.io/badge/Rails-7-red)
+- ![ruby version](https://img.shields.io/badge/Ruby-3.x-yellow)
+- ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+
+## Additional used
+
+- Devise
+- JWT
+- Bootstrap
+- Rspec
+- Jest
+- Rswag
+
+## Live demo
+
+## Getting started
 
 
  
