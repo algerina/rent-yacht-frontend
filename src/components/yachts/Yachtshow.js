@@ -44,7 +44,10 @@ const Yachtshow = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 {' '}
-                <span>Price: </span> ${yacht.price}
+                <span>Price: </span>
+                {' '}
+                $
+                {yacht.price}
               </ListGroup.Item>
             </ListGroup>
           </Card>
