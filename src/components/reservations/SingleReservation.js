@@ -21,7 +21,7 @@ function SingleReservation({
       });
       if (response.ok) {
         const data = await response.json();
-        setYachtName(data.name);
+        setYachtName(data.attributes.name);
       }
     })();
   }, []);
