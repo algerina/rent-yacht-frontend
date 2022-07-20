@@ -1,7 +1,7 @@
 import {
   FETCH_YACHTS_SUCCESS,
   FETCH_SINGLE_YACHT_SUCCESS,
-} from '../actions/yachtActions';
+} from '../actions';
 
 const initialState = {
   yachts: [],

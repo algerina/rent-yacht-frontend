@@ -26,12 +26,13 @@ const Yacht = () => {
   const url = 'https://images.pexels.com/photos/427726/pexels-photo-427726.jpeg';
 
   return (
+ 
     <Carousel className="yachtMargin">
       <h2 className="header">Yachts for charter</h2>
       <p>Your great escape tailored by WHISHYACHT</p>
       {yachts.map((yat) => (
         <Carousel.Item interval={2000} key={yat.id} className="main maincaro">
-          <img className="yachtimg" src={url} alt="Slide one" />
+          <img className="yachtimg" src={yacht.image_url} alt="Slide one" />
           <Carousel.Caption className="caption">
             <h2 className=" text-secondary">
               Name:
@@ -55,7 +56,7 @@ const Yacht = () => {
               onClick={handleClick}
             >
               <Link
-                to={`/reserve/${yat.id}`}
+                to={`/yacht/${yat.id}`}
                 className="reserve app"
                 id={yat.id}
               >

@@ -202,12 +202,14 @@ button {
   }
 
   .e-card {
-    margin-top: 1rem;
-    margin-left: 5rem;
+    margin-top: 4rem;
+    margin-left: 14rem;
     display: flex;
     flex-direction: row;
     gap: 1rem;
     font-weight: bold;
+    justify-content: flex-end;
+    align-items: stretch;
   }
 
   .yachtimg {
