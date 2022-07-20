@@ -18,7 +18,7 @@ a {
   text-decoration: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 801px) {
   .yacht-card {
     display: flex;
     flex-direction: row;
@@ -49,18 +49,18 @@ a {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .show-button {
     margin-top: 2rem;
   }
 
   .yacht-card {
     display: flex;
-    margin-top: 14rem;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
     align-content: stretch;
     align-items: center;
     gap: 3rem;
+    height: 100vh;
   }
 }
