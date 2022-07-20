@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 import getReservations from '../../redux/actions/reservations';
 import SingleReservation from './SingleReservation';
+import 'react-toastify/dist/ReactToastify.css';
 import './reservations-display.css';
 
 const Reservations = () => {
@@ -43,6 +45,7 @@ const Reservations = () => {
           </tbody>
         </table>
       </div>
+      <ToastContainer />
     </main>
   );
 };

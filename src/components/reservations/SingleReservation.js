@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getToken } from '../../redux/actions/auth';
 import { cancelReservation } from '../../redux/actions/reservations';
+import { toast } from 'react-toastify';
 
 function SingleReservation({ city, cost, id, startDate, daysNumber, yachtId }) {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ function SingleReservation({ city, cost, id, startDate, daysNumber, yachtId }) {
 
   const deleteReservation = () => {
     dispatch(cancelReservation(id));
+    toast.success('Reservation canceled successfully');
   };
 
   return (
