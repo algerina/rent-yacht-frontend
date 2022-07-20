@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { getToken } from '../../redux/actions/auth';
+import { cancelReservation } from '../../redux/actions/reservations';
 
-function SingleReservation({
-  city, cost, id, startDate, daysNumber, yachtId,
-}) {
+function SingleReservation({ city, cost, id, startDate, daysNumber, yachtId }) {
   const navigate = useNavigate();
   const [yachtName, setYachtName] = useState('');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
@@ -26,19 +27,8 @@ function SingleReservation({
     })();
   }, []);
 
-  const deleteReservation = async () => {
-    const response = await fetch(`https://wishyacht-api.herokuapp.com/v1/reservations/${id}`, {
-      method: 'DELETE',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: getToken(),
-      },
-    });
-    navigate(0);
-    if (response.ok) {
-      navigate('/reservations');
-    }
+  const deleteReservation = () => {
+    dispatch(cancelReservation(id));
   };
 
   return (
