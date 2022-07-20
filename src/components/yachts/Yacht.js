@@ -1,73 +1,60 @@
-import React, { useEffect } from 'react';
-import './yacht.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { Carousel } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { AiFillTwitterCircle, AiOutlineInstagram } from 'react-icons/ai';
-import { BsFacebook } from 'react-icons/bs';
-import fetchYachts, {
-  fetchSingleYacht,
-} from '../../redux/actions/yachtActions';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Pagination, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import YachtCard from './YachtCard';
+import './swiper.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// import { AiFillTwitterCircle, AiOutlineInstagram } from 'react-icons/ai';
+// import { BsFacebook } from 'react-icons/bs';
+
+import style from './Yacht.module.css';
+import fetchYachts from '../../redux/actions/yachtActions';
 
 const Yacht = () => {
+  const { yachts } = useSelector((state) => state.yacht);
   const dispatch = useDispatch();
-  const yacht = useSelector((state) => state.yacht);
-  const { yachts } = yacht;
 
-  const handleClick = (event) => {
-    const { id } = event.target;
-    dispatch(fetchSingleYacht(id));
-  };
+  const [widthScreen, setWidthScreen] = useState(window.innerWidth);
 
   useEffect(() => {
     dispatch(fetchYachts());
   }, []);
 
-  const url = 'https://images.pexels.com/photos/427726/pexels-photo-427726.jpeg';
+  window.addEventListener('resize', () => {
+    setWidthScreen(window.innerWidth);
+  });
 
   return (
- 
-    <Carousel className="yachtMargin">
-      <h2 className="header">Yachts for charter</h2>
-      <p>Your great escape tailored by WHISHYACHT</p>
-      {yachts.map((yat) => (
-        <Carousel.Item interval={2000} key={yat.id} className="main maincaro">
-          <img className="yachtimg" src={yacht.image_url} alt="Slide one" />
-          <Carousel.Caption className="caption">
-            <h2 className=" text-secondary">
-              Name:
-              {yat.name}
-            </h2>
-            <h3 className="carde text-secondary">
-              Description:
-              {' '}
-              {yat.description}
-            </h3>
-            <span className="icons text-secondary">
-              <AiFillTwitterCircle />
-              <AiOutlineInstagram />
-              <BsFacebook />
-            </span>
-            <button
-              className="btn"
-              variant="success"
-              type="button"
-              size="lg"
-              onClick={handleClick}
-            >
-              <Link
-                to={`/yacht/${yat.id}`}
-                className="reserve app"
-                id={yat.id}
-              >
-                {' '}
-                View
-              </Link>
-            </button>
-          </Carousel.Caption>
-        </Carousel.Item>
-      ))}
-    </Carousel>
+    <main className={style.main}>
+      <div className={style.main__header}>
+        <h1>Your wish yahcts</h1>
+        <p>Please select a yacht</p>
+        <hr />
+      </div>
+      <Swiper
+        slidesPerView={widthScreen > 799 ? 3 : 1}
+        spaceBetween={30}
+        slidesPerGroup={widthScreen > 799 ? 3 : 1}
+        loop
+        loopFillGroupWithBlank
+        pagination={{
+          clickable: true,
+        }}
+        navigation
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        { yachts.map((yacht) => (
+          <SwiperSlide key={yacht.id}>
+            <YachtCard yacht={yacht} imageUrl={yacht.image_url} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </main>
   );
 };
 
