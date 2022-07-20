@@ -31,7 +31,7 @@ const Yacht = () => {
   return (
     <main className={style.main}>
       <div className={style.main__header}>
-        <h1>Your wish yahcts</h1>
+        <h1>Your wish yachts</h1>
         <p>Please select a yacht</p>
         <hr />
       </div>

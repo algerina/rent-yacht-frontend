@@ -20,12 +20,10 @@ const Yachtshow = () => {
       },
     });
 
-    request
-      .get(`http://localhost:3001/v1/yachts/${id}`)
-      .then((response) => {
-        const yacht = response.data;
-        setYacht(yacht);
-      });
+    request.get(`https://wishyacht-api.herokuapp.com/v1/yachts/${id}`).then((response) => {
+      const yacht = response.data.attributes;
+      setYacht(yacht);
+    });
   }, []);
 
   if (yacht) {
@@ -36,7 +34,9 @@ const Yachtshow = () => {
         </div>
         <div className="card-button">
           <Card className="text-box" style={{ width: '15rem' }}>
-            <Card.Header><span className="name">{yacht.name}</span></Card.Header>
+            <Card.Header>
+              <span className="name">{yacht.name}</span>
+            </Card.Header>
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <span>Description: </span>
@@ -44,24 +44,21 @@ const Yachtshow = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 {' '}
-                <span>Price: </span>
-                {' '}
-                $
-                {yacht.price}
+                <span>Price: </span> ${yacht.price}
               </ListGroup.Item>
             </ListGroup>
           </Card>
-          <Button className="show-button" type="button" style={{ width: '15rem' }}>
-            <Link to={`/reserve/${yacht.id}`} className="reserve" id={yacht.id}>
+          <Link to={`/reserve/${yacht.id}`} className="" id={yacht.id}>
+            <Button className="show-button" type="button" style={{ width: '15rem' }}>
               {' '}
               Reserve
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </div>
       </div>
     );
   }
-  return (<h1>Page not found!</h1>);
+  return <h1>Page not found!</h1>;
 };
 
 export default Yachtshow;
