@@ -1,0 +1,15 @@
+.yacht-card {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column-reverse;
+  align-content: flex-end;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.single-yacht {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

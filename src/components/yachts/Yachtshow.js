@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './yacht.css';
+import './yachtshow.css';
 import { Link, useParams } from 'react-router-dom';
-import wheel from '../../assets/colorWheel.JPG';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
 
 const Yachtshow = () => {
   const params = useParams();
@@ -26,30 +28,27 @@ const Yachtshow = () => {
       });
   }, []);
 
-  const url = 'https://images.pexels.com/photos/427726/pexels-photo-427726.jpeg';
 
   if (yacht) {
     return (
-      <div style={{ margin: '50px', display: 'flex', justifyContent: 'flex-end' }}>
-        <div className="e-card e-card-horizontal">
-          <img className="showtimg" src={yacht.image_url} alt="Slide one" style={{ height: '180px' }} />
-          <div className="e-card-stacked">
-            <div className="e-card-header">{yacht.name}</div>
-            <div className="e-card-header-caption">Description: {yacht.description}</div>
-            <div className="e-card-header-title">
-              Price:
-              ${yacht.price}
-            </div>
-            <img src={wheel} alt="colors" className="wheel" />
-            <button className="btn cardbutton" variant="success" type="button" size="lg">
+<div className="yacht-card">
+  <div>
+  <img className="single-yacht" src={yacht.image_url} alt="single-yacht" />
+  </div>
+<Card style={{ width: '18rem' }}>
+      <Card.Header>{yacht.name}</Card.Header>
+      <ListGroup variant="flush">
+        <ListGroup.Item><span>Description:</span>{yacht.description}</ListGroup.Item>
+        <ListGroup.Item>${yacht.price}</ListGroup.Item>
+      </ListGroup>
+    </Card>
+    <button variant="success" type="button" size="lg">
               <Link to={`/reserve/${yacht.id}`} className="reserve" id={yacht.id}>
                 {' '}
                 Reserve
               </Link>
-            </button>
-          </div>
-        </div>
-      </div>
+              </button>
+</div>
     );
   }
   return (<h1>Page not found!</h1>);
