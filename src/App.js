@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
 import { Spinner } from 'react-bootstrap';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import useAuth from './hooks/useAuth';
+import { ToastContainer, toast } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = React.lazy(() => import('./components/Signup'));
 const Login = React.lazy(() => import('./components/Login'));
@@ -21,16 +22,25 @@ function App() {
   const { authChecked, loggedIn } = useAuth();
 
   return (
-    <React.Suspense fallback={(
-      <Spinner
-        animation="grow"
-        variant="primary"
-        style={{
-          width: '4rem', height: '4rem', position: 'absolute', top: '0', bottom: '0', right: '0', left: '0', margin: 'auto auto',
-        }}
-      />
-)}
+    <React.Suspense
+      fallback={
+        <Spinner
+          animation="grow"
+          variant="primary"
+          style={{
+            width: '4rem',
+            height: '4rem',
+            position: 'absolute',
+            top: '0',
+            bottom: '0',
+            right: '0',
+            left: '0',
+            margin: 'auto auto',
+          }}
+        />
+      }
     >
+      <ToastContainer />
       <Router>
         <Routes>
           <Route element={<WithoutNav />}>
