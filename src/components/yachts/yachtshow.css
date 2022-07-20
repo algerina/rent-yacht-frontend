@@ -1,15 +1,69 @@
-.yacht-card {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column-reverse;
-  align-content: flex-end;
-  flex-wrap: wrap;
-  align-items: flex-end;
+span {
+  font-weight: bolder;
+}
+
+.name {
+  font-size: xx-large;
 }
 
 .single-yacht {
   display: block;
   margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+  margin-right: 5rem;
+  width: 60%;
+}
+
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) { 
+  .yacht-card {
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    align-items: center;
+    justify-content: space-around;
+    /* margin-top: 1rem; */
+  }
+
+  .img-wrap {
+    margin-top: 10rem;
+  }
+
+  .card-button {
+    margin-right: 1rem;
+  }
+
+
+  .show-button {
+    color: white;
+    background-color: dodgerblue;
+    border-color: dodgerblue;
+    margin-top: 2rem;
+  }
+
+
+  .text-box {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) { 
+
+  .show-button {
+    margin-top: 2rem;
+  }
+
+  .yacht-card {
+    display: flex;
+    margin-top: 14rem;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-content: stretch;
+    align-items: center;
+    gap: 3rem;
+    }
 }

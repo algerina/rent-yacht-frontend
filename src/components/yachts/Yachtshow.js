@@ -32,22 +32,24 @@ const Yachtshow = () => {
   if (yacht) {
     return (
 <div className="yacht-card">
-  <div>
+  <div className="img-wrap">
   <img className="single-yacht" src={yacht.image_url} alt="single-yacht" />
   </div>
-<Card style={{ width: '18rem' }}>
-      <Card.Header>{yacht.name}</Card.Header>
+  <div className="card-button"> 
+<Card className="text-box" style={{ width: '15rem' }}>
+      <Card.Header><span className="name">{yacht.name}</span></Card.Header>
       <ListGroup variant="flush">
-        <ListGroup.Item><span>Description:</span>{yacht.description}</ListGroup.Item>
-        <ListGroup.Item>${yacht.price}</ListGroup.Item>
+        <ListGroup.Item><span>Description: </span>{yacht.description}</ListGroup.Item>
+        <ListGroup.Item> <span>Price: </span> ${yacht.price}</ListGroup.Item>
       </ListGroup>
     </Card>
-    <button variant="success" type="button" size="lg">
+    <Button  className="show-button" type="button" style={{ width: '15rem' }}>
               <Link to={`/reserve/${yacht.id}`} className="reserve" id={yacht.id}>
                 {' '}
                 Reserve
               </Link>
-              </button>
+              </Button>
+              </div>
 </div>
     );
   }
