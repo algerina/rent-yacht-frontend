@@ -1,70 +1,150 @@
-# Getting Started with Create React App
+![](https://img.shields.io/badge/Microverse-blueviolet)
+![](https://img.shields.io/static/v1?label=BY&message=Algerina&color=pink)
+![](https://img.shields.io/static/v1?label=BY&message=Estebanmual&color=blue)
+![](https://img.shields.io/static/v1?label=BY&message=FranciscoPonceDev&color=purple)
+![](https://img.shields.io/static/v1?label=BY&message=German-cobian&color=red)
+![](https://img.shields.io/static/v1?label=BY&message=Omar25ahmed&color=green)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# WISHYACHT
 
-## Available Scripts
+![screenshot](./src/assets/Yacht-logo-2.svg)
+<hr>
+## Description
 
-In the project directory, you can run:
+> This is  a Web application where users should sign in to rent a Yacht from a list then reserve it for a determined period, users can then see their reservations or cancel them.
 
-### `npm start`
+In this App users are allowed:
+- To Signup and Login.
+- To Reserve a Yacht from a specific city
+- To See all his reservations.
+- To Cancel  reservations.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Admins are allowed:
+- To Login.
+- To Add a new Yacht, or delete a Yacht.
+<hr>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Api Documentation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+>You can review the documentation for the API [here](https://wishyacht-api.herokuapp.com/api-docs/index.html
+).
+<hr>
 
-### `npm run build`
+ 
+## Back-end Repository 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[RailsApp](https://github.com/algerina/rent-yacht)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Built With
 
-### `npm run eject`
+Front-end
+- [react](https://reactjs.org/) 
+- [redux-toolkit](https://redux-toolkit.js.org/) 
+- [react-router](https://reactrouter.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Back-end
+- ![rails version](https://img.shields.io/badge/Rails-7-red)
+- ![ruby version](https://img.shields.io/badge/Ruby-3.x-yellow)
+- ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Additional used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Devise
+- JWT
+- Bootstrap
+- Rspec
+- Jest
+- Rswag
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Live demo
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To get a local copy up and running follow these simple example steps.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```sh
+git clone git@github.com:Algerina/rent-yacht-frontend.git 
+```
 
-### Code Splitting
+Then 
+```sh
+cd rent-yacht-frontend 
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To install packages
+```sh 
+npm install
+``` 
 
-### Analyzing the Bundle Size
+To Run the app
+```sh 
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To Run the test
+```sh 
+npm run test
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+ ## Collaborators
 
-### Advanced Configuration
+👤 **Edgar Esteban Muñoz Alba**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Platform | Badge |
+ --- | --- |
+ **GitHub**  | [@estebanmual](https://github.com/estebanmual)
+ **Twitter** |[@estebanmual](https://twitter.com/estebanmual)
+ **LinkedIn** | [LinkedIn](https://linkedin.com/in/estebanmual)
+<hr>
 
-### Deployment
+ 👤 **German Cobian**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Platform | Badge |
+ --- | --- |
+ **GitHub**  | [@German Cobian](https://github.com/German-Cobian)
+ **Twitter** |[@GermanCobian2](https://twitter.com/GermanCobian2)
+ **LinkedIn** | [@German Cobian](https://www.linkedin.com/in/german-cobian/)
+<hr>
 
-### `npm run build` fails to minify
+ 👤 **Amel Khiri**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ Platform | Badge |
+ --- | --- |
+ **GitHub**  | [@Algerina](https://github.com/Algerina)
+ **LinkedIn** | [@Amel Khiri](https://www.linkedin.com/in/amel-khiri/)
+<hr>
+
+ 👤 **Francisco Ponce**
+
+Platform | Badge |
+ --- | --- |
+ **GitHub**  |[@franciscoPonceDev](https://github.com/franciscoPonceDev)
+ **LinkedIn** |  [Francisco Ponce](https://www.linkedin.com/in/dev-ponce/)
+<hr>
+
+ 👤 **Omar Ragheb**
+
+Platform | Badge |
+ --- | --- |
+ **GitHub**  |  [@omar25ahmed](https://github.com/omar25ahmed)
+ **Twitter** |[@omar25Ahmed](https://twitter.com/Omar25Ahmed)
+ **LinkedIn** | [@Omar-ragheb](https://www.linkedin.com/in/omar-ragheb/)
+<hr>
+ 
+## Show your support
+
+Give a ⭐️ if you like this project!
+<hr>
+
+## Acknowledgments
+
+Original design [Vespa](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign/modules/173005583) by [Murat Korkmaz](https://www.behance.net/muratk) on [Behance](https://www.behance.net/)
+
+<hr>
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
