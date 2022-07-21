@@ -1,0 +1,74 @@
+.w-80 {
+  width: 80%;
+  max-width: 700px;
+}
+
+.fs125 {
+  font-size: 1.25rem;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase {
+  width: 70%;
+}
+
+.form-label {
+  color: #000;
+}
+
+.addYacht__button,
+.deleteYacht__button {
+  color: #fff;
+  background-color: dodgerblue;
+  border-color: dodgerblue;
+  text-transform: uppercase;
+}
+
+.AddYachts__header,
+.deleteYachts__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.AddYachts__header > h1,
+.deleteYachts__header > h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.AddYachts__header > p,
+.deleteYachts__header > p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(59 54 54 / 42%);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.AddYachts__header > hr,
+.deleteYachts__header > hr {
+  border-top: 4px dotted rgb(59 54 54 / 60%);
+  width: 80%;
+  margin: 1rem auto;
+  background: none;
+}
+
+.delete-yacht {
+  background: #218efa;
+}
+
+@media only screen and (max-width: 800px) {
+  .showcase {
+    width: 100%;
+  }
+}

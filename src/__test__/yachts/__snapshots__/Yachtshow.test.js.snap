@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="yacht-card"
+>
+  <div
+    className="img-wrap"
+  >
+    <img
+      alt="single-yacht"
+      className="single-yacht"
+    />
+  </div>
+  <div
+    className="card-button"
+  >
+    <div
+      className="text-box card"
+    >
+      <div
+        className="card-header"
+      >
+        <span
+          className="name"
+        />
+      </div>
+      <div
+        className="list-group list-group-flush"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="list-group-item"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          <span>
+            Description: 
+          </span>
+        </div>
+        <div
+          className="list-group-item"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          <span>
+            Price: 
+          </span>
+          $
+        </div>
+      </div>
+    </div>
+    <a
+      href="/reserve/undefined"
+      onClick={[Function]}
+    >
+      <button
+        className="show-button btn btn-primary"
+        disabled={false}
+        type="button"
+      >
+         
+        Reserve
+      </button>
+    </a>
+  </div>
+</div>
+`;

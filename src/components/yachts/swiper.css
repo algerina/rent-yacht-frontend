@@ -1,0 +1,87 @@
+.swiper {
+  width: 75%;
+  height: 60%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10%;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.1) 0 8px 24px, rgba(17, 17, 26, 0.1) 0 16px 56px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+}
+
+div.swiper-button-prev,
+div.swiper-button-next {
+  background: dodgerblue;
+  color: #fff;
+  width: 8%;
+  height: 8%;
+  top: 70%;
+}
+
+div.swiper-button-prev {
+  position: fixed;
+  left: 20%;
+  right: auto;
+  border-radius: 30px 0 0 30px;
+  background-image: url("../../assets/nextArrow.svg");
+  background-size: 40%;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+  background-position: 25% center;
+}
+
+div.swiper-button-next {
+  position: fixed;
+  left: auto;
+  right: 0;
+  border-radius: 30px 0 0 30px;
+  background-image: url("../../assets/nextArrow.svg");
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: 25% center;
+}
+
+div.swiper-button-next::after,
+div.swiper-button-prev::after {
+  content: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .swiper {
+    width: 100%;
+  }
+
+  div.swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-slide img {
+    width: 50vw;
+    height: 50vw;
+  }
+
+  div.swiper-button-next,
+  div.swiper-button-prev {
+    background-position: 75% center;
+    background-size: 70%;
+  }
+}

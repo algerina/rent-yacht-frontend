@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<main
+  className="main"
+>
+  <div
+    className="cards"
+  >
+    <div
+      className="alert alert-danger"
+      role="alert"
+    >
+      No reservation found, you can add a reservation from the
+       
+      <a
+        class="alert-link"
+        href="/"
+        onClick={[Function]}
+      >
+        Home page
+      </a>
+       
+      by opening a specific yacht page
+    </div>
+  </div>
+  <div
+    className="Toastify"
+  />
+</main>
+`;
