@@ -86,7 +86,7 @@ function SingleReservation({
           </p>
         </div>
         <div className="control">
-          <button onClick={deleteReservation} type="button" className="btn">
+          <button onClick={deleteReservation} type="button" className="btn-cancel">
             <span className="price">
               $
               {cost}

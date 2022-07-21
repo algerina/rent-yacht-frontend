@@ -23,6 +23,10 @@
   width: 70%;
 }
 
+.delete-yacht {
+  background: #218EFA;
+}
+
 @media only screen and (max-width: 800px) {
   .showcase {
     width: 100%;

@@ -51,7 +51,7 @@ const DeleteYachts = () => {
     <tr key={yacht.attributes.name}>
       <td className="fs125 d-flex justify-content-between px-5">
         {yacht.attributes.name}
-        <Button type="button" variant="info" onClick={handleDeleteYacht(yacht.attributes.id)}>
+        <Button type="button" variant="info" className="delete-yacht" onClick={handleDeleteYacht(yacht.attributes.id)}>
           Delete
         </Button>
       </td>

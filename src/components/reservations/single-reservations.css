@@ -65,10 +65,10 @@
   left: 22.8%;
 }
 
-.btn {
+.btn-cancel {
   transform: translateY(0);
   transition: 0.3s linear;
-  background: #809fff;
+  background: #208EFB;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -80,12 +80,12 @@
   margin: 0;
 }
 
-.btn:hover {
+.btn-cancel:hover {
   transform: translateY(-6px);
   background: #c44b3f;
 }
 
-.btn span {
+.btn-cancel span {
   font-family: 'Farsan', cursive;
   transition: transform 0.3s;
   display: inline-block;
@@ -94,19 +94,19 @@
   margin: 0;
 }
 
-.btn .price,
+.btn-cancel .price,
 .remove {
   background: #333;
   border: 0;
   margin: 0;
 }
 
-.btn .price {
+.btn-cancel .price {
   transform: translateX(-10%);
   padding-right: 15px;
 }
 
-.btn .remove {
+.btn-cancel .remove {
   transform: translateX(-100%);
   position: absolute;
   background: #333;
@@ -119,14 +119,14 @@
   color: #fff;
 }
 
-.btn .cancel {
+.btn-cancel .cancel {
   z-index: 3;
   font-weight: bolder;
 }
 
-.btn:hover .price { transform: translateX(-110%); }
+.btn-cancel:hover .price { transform: translateX(-110%); }
 
-.btn:hover .remove { transform: translateX(0%); }
+.btn-cancel:hover .remove { transform: translateX(0%); }
 
 .product-image {
   transition: all 0.3s ease-out;

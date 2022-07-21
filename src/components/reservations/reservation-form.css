@@ -53,7 +53,7 @@ select {
 
 input[type="date"],
 .box select {
-  background-color: #0563af;
+  background-color: #208EFB;
   color: white;
   padding: 12px;
   height: 50px;
@@ -80,14 +80,14 @@ input[type="date"],
 }
 
 .my-reserve {
-  background-color: #0563af;
+  background-color: #208EFB;
   text-decoration: none;
   color: #fff;
 }
 
 .reserve {
   background-color: #fff;
-  color: #0563af;
+  color: #208EFB;
 }
 
 .my-reserve:hover {
