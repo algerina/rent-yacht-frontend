@@ -3,6 +3,7 @@ import axios from 'axios';
 import './yachtshow.css';
 import { Link, useParams } from 'react-router-dom';
 import { ListGroup, Button, Card } from 'react-bootstrap';
+
 const Yachtshow = () => {
   const params = useParams();
   const id = params.yacht_id;
