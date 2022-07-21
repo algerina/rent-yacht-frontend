@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { getToken } from '../../redux/actions/auth';
 import { cancelReservation } from '../../redux/actions/reservations';
-import { toast } from 'react-toastify';
+import './single-reservations.css';
 
-function SingleReservation({ city, cost, id, startDate, daysNumber, yachtId }) {
-  const navigate = useNavigate();
+function SingleReservation({
+  city, cost, id, startDate, daysNumber, yachtId,
+}) {
   const [yachtName, setYachtName] = useState('');
+  const [yachtDescription, setYachtDescription] = useState('');
+  const [yachtImage, setYachtImage] = useState('');
   const dispatch = useDispatch();
+
+  function addDays(originalDate, days) {
+    const cloneDate = new Date(originalDate.valueOf());
+    cloneDate.setDate(cloneDate.getDate() + days);
+    return cloneDate;
+  }
 
   useEffect(() => {
     (async () => {
@@ -24,6 +33,8 @@ function SingleReservation({ city, cost, id, startDate, daysNumber, yachtId }) {
       if (response.ok) {
         const data = await response.json();
         setYachtName(data.attributes.name);
+        setYachtDescription(data.attributes.description);
+        setYachtImage(data.attributes.image_url);
       }
     })();
   }, []);
@@ -34,24 +45,64 @@ function SingleReservation({ city, cost, id, startDate, daysNumber, yachtId }) {
   };
 
   return (
-    <tr>
-      <td>{yachtName}</td>
-      <td>{city}</td>
-      <td>
-        {new Intl.DateTimeFormat('en-US', {
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit',
-        }).format(new Date(startDate))}
-      </td>
-      <td>{daysNumber}</td>
-      <td>{cost}</td>
-      <td>
-        <button onClick={deleteReservation} type="button" className="btn btn-danger">
-          Delete
-        </button>
-      </td>
-    </tr>
+    <div id="container">
+      <div className="product-details">
+        <h1>{yachtName}</h1>
+        <br />
+        <span className="hint-star star">
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star-o" aria-hidden="true" />
+        </span>
+        <div className="information">
+          <p className="description">{`" ${yachtDescription} "`}</p>
+          <p className="price">
+            Price per day: $
+            {cost / daysNumber}
+          </p>
+          <p className="date">
+            <strong>From: </strong>
+            {' '}
+            {new Intl.DateTimeFormat('en-US', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+            }).format(new Date(startDate))}
+            {' '}
+            <strong>To: </strong>
+            {' '}
+            {new Intl.DateTimeFormat('en-US', {
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+            }).format(new Date(addDays(startDate, daysNumber)))}
+          </p>
+          <p className="city">
+            City:
+            {' '}
+            {city}
+          </p>
+        </div>
+        <div className="control">
+          <button onClick={deleteReservation} type="button" className="btn">
+            <span className="price">
+              $
+              {cost}
+            </span>
+            <span className="remove">
+              <i className="fa fa-trash-o" aria-hidden="true" />
+            </span>
+            <span className="cancel">Cancel?</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="product-image">
+        <img src={yachtImage} alt="Yacht" />
+      </div>
+    </div>
   );
 }
 

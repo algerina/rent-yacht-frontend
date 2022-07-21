@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
+import { ToastContainer } from 'react-toastify';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import useAuth from './hooks/useAuth';
-import { ToastContainer, toast } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <React.Suspense
-      fallback={
+      fallback={(
         <Spinner
           animation="grow"
           variant="primary"
@@ -38,7 +38,7 @@ function App() {
             margin: 'auto auto',
           }}
         />
-      }
+      )}
     >
       <ToastContainer />
       <Router>
