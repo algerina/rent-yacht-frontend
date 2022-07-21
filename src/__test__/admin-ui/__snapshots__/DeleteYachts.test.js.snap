@@ -1,3 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `null`;
+exports[`renders correctly 1`] = `
+<main
+  className="main"
+>
+  <div
+    className="deleteYachts__header"
+  >
+    <h1>
+      Delete Yachts
+    </h1>
+    <p>
+      These are all our yachts
+    </p>
+    <hr />
+  </div>
+  <div
+    className="effect"
+  />
+  <div
+    className="align-items-center justify-content-center z1 container"
+  >
+    <div
+      className="table-responsive"
+    >
+      <table
+        className="align-items-center my-5 mx-auto w-80 shadow p-3 bg-body rounded table table-striped table-borderless table-hover"
+      >
+        <thead>
+          <tr>
+            <th
+              className="fs125 my-2"
+            >
+              Yachts
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+</main>
+`;

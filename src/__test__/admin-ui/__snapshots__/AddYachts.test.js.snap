@@ -5,6 +5,17 @@ exports[`renders correctly 1`] = `
   className="main"
 >
   <div
+    className="AddYachts__header"
+  >
+    <h1>
+      Add new yacht
+    </h1>
+    <p>
+      Please provide the yacht information
+    </p>
+    <hr />
+  </div>
+  <div
     className="effect"
   />
   <div
@@ -77,12 +88,6 @@ exports[`renders correctly 1`] = `
       <div
         className="mb-3"
       >
-        <label
-          className="form-label"
-          htmlFor="formAddYacht"
-        >
-          Image
-        </label>
         <input
           id="image_url"
           name="image_url"
@@ -92,16 +97,13 @@ exports[`renders correctly 1`] = `
         />
       </div>
       <button
-        className="btn btn-primary"
+        className="addYacht__button btn btn-primary"
         disabled={false}
         type="submit"
       >
         ADD YACHT
       </button>
     </form>
-    <div
-      className="Toastify"
-    />
   </div>
 </main>
 `;

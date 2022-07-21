@@ -17,11 +17,6 @@ exports[`renders correctly 1`] = `
   >
     <div
       className="text-box card"
-      style={
-        Object {
-          "width": "15rem",
-        }
-      }
     >
       <div
         className="card-header"
@@ -48,28 +43,20 @@ exports[`renders correctly 1`] = `
           data-rr-ui-event-key={null}
           onClick={[Function]}
         >
-           
           <span>
             Price: 
           </span>
-           
           $
         </div>
       </div>
     </div>
     <a
-      className=""
       href="/reserve/undefined"
       onClick={[Function]}
     >
       <button
         className="show-button btn btn-primary"
         disabled={false}
-        style={
-          Object {
-            "width": "15rem",
-          }
-        }
         type="button"
       >
          
