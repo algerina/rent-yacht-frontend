@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<main
+  className="main-2"
+>
+  <div
+    className="effect-2"
+  />
+  <div
+    className="showcase-2"
+  >
+    <div
+      className="mx-5"
+    >
+      <h2
+        className="my-5 head-form"
+      >
+        BOOK A RESERVATION
+      </h2>
+    </div>
+    <form
+      className="mx-5"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group d-flex gap-3 flex-wrap"
+      >
+        <label
+          htmlFor="username"
+        >
+          Username
+          <input
+            className="form-control form-control-lg"
+            disabled={true}
+            type="username"
+          />
+        </label>
+        <label
+          htmlFor="yacht"
+        >
+          Yacht
+          <input
+            className="form-control form-control-lg"
+            disabled={true}
+            type="yacht"
+            value=""
+          />
+        </label>
+      </div>
+      <div
+        className="d-flex justify-content-between mt-3 flex-wrap"
+      >
+        <div
+          className="box"
+        >
+          <input
+            name="start_date"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="date"
+          />
+        </div>
+        <div
+          className="box"
+        >
+          <select
+            name="city"
+            onBlur={[Function]}
+            onChange={[Function]}
+          >
+            <option
+              disabled="disabled"
+              label="Port of departure?"
+              selected="true"
+            />
+            <option>
+              Rotterdam
+            </option>
+            <option>
+              Buenos Aires
+            </option>
+            <option>
+              Los Angeles
+            </option>
+            <option>
+              Alexandria
+            </option>
+            <option>
+              Lisbon
+            </option>
+            <option>
+              Shanghai
+            </option>
+          </select>
+        </div>
+        <div
+          className="box"
+        >
+          <select
+            name="days_number"
+            onBlur={[Function]}
+            onChange={[Function]}
+          >
+            <option
+              disabled="disabled"
+              label="How many days?"
+              selected="true"
+            />
+            <option>
+              1 day
+            </option>
+            <option>
+              2 days
+            </option>
+            <option>
+              3 days
+            </option>
+            <option>
+              4 days
+            </option>
+            <option>
+              5 days
+            </option>
+            <option>
+              6 days
+            </option>
+            <option>
+              7 days
+            </option>
+          </select>
+        </div>
+      </div>
+      <div
+        className="action d-flex justify-content-center gap-3 my-3 flex-wrap"
+      >
+        <input
+          className="reserve"
+          type="submit"
+          value="Add Reservation"
+        />
+        <a
+          className="my-reserve"
+          href="/reservations"
+          onClick={[Function]}
+        >
+          Your Reservations
+        </a>
+      </div>
+    </form>
+  </div>
+</main>
+`;

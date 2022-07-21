@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<main
+  className="main"
+>
+  <div
+    className="background"
+  />
+  <div
+    className="foreground"
+  >
+    <table
+      className="table table-hover"
+    >
+      <thead
+        className="text-white bg-primary"
+      >
+        <tr>
+          <th
+            scope="col"
+          >
+            Yacht Name
+          </th>
+          <th
+            scope="col"
+          >
+            City
+          </th>
+          <th
+            scope="col"
+          >
+            Start Date
+          </th>
+          <th
+            scope="col"
+          >
+            Days
+          </th>
+          <th
+            scope="col"
+          >
+            Cost
+          </th>
+          <th
+            scope="col"
+          >
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="bg-white"
+      />
+    </table>
+  </div>
+</main>
+`;

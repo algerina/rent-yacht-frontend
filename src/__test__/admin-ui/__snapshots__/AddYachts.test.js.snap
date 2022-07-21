@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<main
+  className="main"
+>
+  <div
+    className="effect"
+  />
+  <div
+    className="showcase"
+  >
+    <form
+      className="bg-light rounded-3 shadow p-4 bg-body"
+      onSubmit={[Function]}
+    >
+      <div
+        className="mb-3"
+      >
+        <label
+          className="form-label"
+          htmlFor="formAddYacht"
+        >
+          Yacht Name
+        </label>
+        <input
+          className="form-control"
+          htmlFor="name"
+          id="formAddYacht"
+          name="name"
+          onChange={[Function]}
+          placeholder="Enter Yacht Name"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="mb-3"
+      >
+        <label
+          className="form-label"
+          htmlFor="formAddYacht"
+        >
+          Description
+        </label>
+        <input
+          className="form-control"
+          htmlFor="descripion"
+          id="formAddYacht"
+          name="description"
+          onChange={[Function]}
+          placeholder="Enter Yacht Description"
+          required={true}
+          type="textarea"
+        />
+      </div>
+      <div
+        className="mb-3"
+      >
+        <label
+          className="form-label"
+          htmlFor="formAddYacht"
+        >
+          Price
+        </label>
+        <input
+          className="form-control"
+          htmlFor="price"
+          id="formAddYacht"
+          name="price"
+          onChange={[Function]}
+          placeholder="Enter Yacht Price"
+          required={true}
+          type="number"
+        />
+      </div>
+      <div
+        className="mb-3"
+      >
+        <label
+          className="form-label"
+          htmlFor="formAddYacht"
+        >
+          Image
+        </label>
+        <input
+          id="image_url"
+          name="image_url"
+          placeholder="Select Image"
+          required={true}
+          type="file"
+        />
+      </div>
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        type="submit"
+      >
+        ADD YACHT
+      </button>
+    </form>
+    <div
+      className="Toastify"
+    />
+  </div>
+</main>
+`;
