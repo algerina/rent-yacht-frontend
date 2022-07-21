@@ -7,7 +7,7 @@
 
 # WISHYACHT
 
-![screenshot](./src/assets/Yacht-logo-2.svg)
+![screenshot](./src/assets/Yacht-logo2.svg)
 <hr>
 ##Description
 
