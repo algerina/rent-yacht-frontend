@@ -7,14 +7,7 @@
   position: relative;
 }
 
-.background {
-  background-image: url("../../assets/yacht-background-r.jpg");
-  background-repeat: round;
-  filter: blur(5px);
-  height: 100vh;
-}
-
-.cards:before {
+.cards::before {
   content: "";
   position: fixed;
   left: 20%;
@@ -28,7 +21,6 @@
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
-  -ms-filter: blur(5px);
   filter: blur(5px);
 }
 
@@ -46,15 +38,8 @@
   padding: 2em;
 }
 
-/* .table {
-  position: relative;
-  margin-left: 15%;
-  margin-right: 15%;
-} */
-
 @media only screen and (max-width: 850px) {
-
-  .cards:before {
+  .cards::before {
     content: "";
     position: fixed;
     left: 0;
@@ -67,8 +52,6 @@
     height: 800px;
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
     filter: blur(5px);
   }
 }
