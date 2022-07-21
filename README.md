@@ -8,8 +8,15 @@
 # WISHYACHT
 
 ![screenshot](./src/assets/Yacht-logo2.svg)
+
 <hr>
-##Description
+
+![screenshot](./src/assets/ReactApp1.png)
+![screenshot](./src/assets/ReactApp2.png)
+
+<hr>
+
+## Description
 
 > This is  a Web application where users should sign in to rent a Yacht from a list then reserve it for a determined period, users can then see their reservations or cancel them.
 
@@ -22,6 +29,15 @@ In this App users are allowed:
 Admins are allowed:
 - To Login.
 - To Add a new Yacht, or delete a Yacht.
+<hr>
+
+
+## Kanban bord
+-  [Link to the initial state of the Kanban board](https://user-images.githubusercontent.com/92755394/177657371-659c399b-1846-44a2-811a-ba6d0e03858c.png)
+- [Link to the final state of the Kanban board ](https://github.com/algerina/rent-yacht/projects/1)
+- [Team members](https://github.com/algerina/rent-yacht#collaborators).
+
+
 <hr>
 
 
