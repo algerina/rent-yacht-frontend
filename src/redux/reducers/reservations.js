@@ -1,4 +1,4 @@
-import { GET_MY_RESERVATIONS } from '../actions';
+import { GET_MY_RESERVATIONS } from '../../constants';
 
 const initialState = [];
 

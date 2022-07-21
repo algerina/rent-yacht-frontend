@@ -18,6 +18,11 @@ a {
   text-decoration: none;
 }
 
+.text-box,
+.show-button {
+  width: 15rem;
+}
+
 @media (min-width: 801px) {
   .yacht-card {
     display: flex;

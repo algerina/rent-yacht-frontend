@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import { getToken } from '../../redux/actions/auth';
 import './reservation-form.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ReservationForm = () => {
-  const [error, setError] = useState();
   const [yachtName, setYachtName] = useState('');
   const { id } = useParams();
   const navigate = useNavigate();
@@ -52,8 +53,9 @@ const ReservationForm = () => {
 
     if (response.ok) {
       navigate('/reservations');
+      toast.success('Reservation added successfully');
     } else {
-      setError('We could not add your reservation.');
+      toast.error('Dates preceding today cannot be reserved.');
     }
   };
 
@@ -64,7 +66,6 @@ const ReservationForm = () => {
         <div className="mx-5">
           <h2 className="my-5 head-form">BOOK A RESERVATION</h2>
         </div>
-        {error && <p className="mx-5">{error}</p>}
         <form className="mx-5" onSubmit={handleSubmit(onFormSubmit)}>
           <div className="form-group d-flex gap-3 flex-wrap">
             <label htmlFor="username">
@@ -116,6 +117,7 @@ const ReservationForm = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </main>
   );
 };

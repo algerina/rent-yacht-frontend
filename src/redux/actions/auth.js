@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { AUTHENTICATED, NOT_AUTHENTICATED } from '.';
+import { AUTHENTICATED, NOT_AUTHENTICATED } from '../../constants';
 
 const setToken = (token) => {
   localStorage.setItem('token', token);

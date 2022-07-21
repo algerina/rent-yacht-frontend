@@ -1,26 +1,24 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useNavigate, Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { loginUser } from '../redux/actions/auth';
+import { signupUser } from '../../redux/actions/auth';
 import './registeration-form.css';
-import 'react-toastify/dist/ReactToastify.css';
-import logo from '../assets/Yacht-logo.svg';
+import logo from '../../assets/Yacht-logo.svg';
 
-const Login = ({ loggedIn }) => {
-  if (loggedIn) return <Navigate to="/" replace />;
-
-  const [logInError, setLogInError] = useState([]);
-
+const Signup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [signUpError, setSignUpError] = useState([]);
 
   const notifyError = (error) => toast.error(error, {
     position: 'top-right',
@@ -30,7 +28,11 @@ const Login = ({ loggedIn }) => {
   });
 
   const onFormSubmit = (data) => {
-    dispatch(loginUser(data)).catch((err) => notifyError(err.error));
+    if (data.password.length >= 6) {
+      dispatch(signupUser(data)).then(navigate('/')).catch((err) => notifyError(err.error));
+    } else {
+      notifyError('Password must be at least 6 characters long');
+    }
   };
 
   const isEmpty = Object.keys(errors).length === 0;
@@ -42,26 +44,24 @@ const Login = ({ loggedIn }) => {
       Object.entries(errors).forEach(([key, value]) => {
         newErrors.push([key, value.message]);
       });
-      setLogInError(newErrors);
+      setSignUpError(newErrors);
     }
   };
 
   useEffect(() => {
-    if (logInError.length !== 0) {
-      logInError.forEach((error) => notifyError(error[1]));
+    if (signUpError.length !== 0) {
+      signUpError.forEach((error) => notifyError(error[1]));
     }
-  }, [logInError]);
+  }, [signUpError]);
 
   return (
     <div className="main">
       <div className="effect" />
       <div className="showcase">
-        <div className="logo">
-          <img src={logo} alt="logo" />
-        </div>
+        <div className="logo"><img src={logo} alt="logo" /></div>
         <div className="center">
           <div className="">
-            <h1 className="">Log in</h1>
+            <h1 className="">Sign Up</h1>
           </div>
           <form className="form" onSubmit={handleSubmit(onFormSubmit)}>
             <div className="inputbox">
@@ -75,6 +75,15 @@ const Login = ({ loggedIn }) => {
             </div>
             <div className="inputbox">
               <input
+                className="name"
+                type="email"
+                placeholder="Email"
+                {...register('email', { required: 'Email is required' })}
+              />
+              <span>Email</span>
+            </div>
+            <div className="inputbox">
+              <input
                 className="score"
                 type="password"
                 placeholder="Password"
@@ -84,8 +93,8 @@ const Login = ({ loggedIn }) => {
             </div>
             <div className="submit">
               <input type="submit" value="Submit" onClick={() => updateErrors()} />
-              <Link className="login" to="/signup">
-                Sign up
+              <Link className="login" to="/login">
+                Log In
               </Link>
             </div>
           </form>
@@ -96,8 +105,4 @@ const Login = ({ loggedIn }) => {
   );
 };
 
-Login.propTypes = {
-  loggedIn: PropTypes.bool.isRequired,
-};
-
-export default Login;
+export default Signup;

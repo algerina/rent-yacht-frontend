@@ -1,4 +1,4 @@
-import { AUTHENTICATED, NOT_AUTHENTICATED } from '../actions';
+import { AUTHENTICATED, NOT_AUTHENTICATED } from '../../constants';
 
 const initialState = {
   authChecked: false,
