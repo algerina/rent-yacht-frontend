@@ -4,13 +4,13 @@ import { Provider } from 'react-redux';
 import store from '../../redux/storeSetUp';
 import Reservations from '../../components/reservations/Reservations';
 
-it ('renders correctly', () => {
+it('renders correctly', () => {
   const tree = renderer.create(
     <Provider store={store}>
       <Router>
         <Reservations />
       </Router>
-    </Provider>
+    </Provider>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
-} );
+});

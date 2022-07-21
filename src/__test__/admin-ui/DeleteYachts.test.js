@@ -4,13 +4,13 @@ import { Provider } from 'react-redux';
 import store from '../../redux/storeSetUp';
 import DeleteYachts from '../../components/admin-ui/DeleteYachts';
 
-it ('renders correctly', () => {
+it('renders correctly', () => {
   const tree = renderer.create(
     <Provider store={store}>
       <Router>
         <DeleteYachts />
       </Router>
-    </Provider>
+    </Provider>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
-} );
+});
