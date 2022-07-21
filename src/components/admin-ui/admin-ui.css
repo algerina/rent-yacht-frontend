@@ -22,6 +22,7 @@
 .form-label {
   color: #000;
 }
+
 .addYacht__button,
 .deleteYacht__button {
   color: #fff;
@@ -29,11 +30,13 @@
   border-color: dodgerblue;
   text-transform: uppercase;
 }
+
 .AddYachts__header,
 .deleteYachts__header {
   text-align: center;
   margin-bottom: 50px;
 }
+
 .AddYachts__header > h1,
 .deleteYachts__header > h1 {
   font-size: 2rem;
@@ -42,6 +45,7 @@
   text-transform: uppercase;
   text-align: center;
 }
+
 .AddYachts__header > p,
 .deleteYachts__header > p {
   font-size: 1rem;
@@ -50,6 +54,7 @@
   text-align: center;
   margin-bottom: 1rem;
 }
+
 .AddYachts__header > hr,
 .deleteYachts__header > hr {
   border-top: 4px dotted rgb(59 54 54 / 60%);
@@ -59,7 +64,7 @@
 }
 
 .delete-yacht {
-  background: #218EFA;
+  background: #218efa;
 }
 
 @media only screen and (max-width: 800px) {

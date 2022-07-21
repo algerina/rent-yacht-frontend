@@ -2,6 +2,7 @@
   width: 75%;
   height: 60%;
 }
+
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -19,12 +20,14 @@
   align-items: center;
   justify-content: center;
 }
+
 .swiper-slide img {
   display: block;
   width: 15vw;
   height: 15vw;
   border-radius: 50%;
 }
+
 div.swiper-button-prev,
 div.swiper-button-next {
   background: dodgerblue;
@@ -33,6 +36,7 @@ div.swiper-button-next {
   height: 8%;
   top: 70%;
 }
+
 div.swiper-button-prev {
   position: fixed;
   left: 20%;
@@ -44,6 +48,7 @@ div.swiper-button-prev {
   transform: scaleX(-1);
   background-position: 25% center;
 }
+
 div.swiper-button-next {
   position: fixed;
   left: auto;
@@ -54,21 +59,26 @@ div.swiper-button-next {
   background-repeat: no-repeat;
   background-position: 25% center;
 }
+
 div.swiper-button-next::after,
 div.swiper-button-prev::after {
   content: none;
 }
+
 @media only screen and (max-width: 800px) {
   .swiper {
     width: 100%;
   }
+
   div.swiper-button-prev {
     left: 0;
   }
+
   .swiper-slide img {
     width: 50vw;
     height: 50vw;
   }
+
   div.swiper-button-next,
   div.swiper-button-prev {
     background-position: 75% center;
