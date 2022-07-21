@@ -1,4 +1,4 @@
-import { GET_MY_RESERVATIONS } from '.';
+import { GET_MY_RESERVATIONS } from '../../constants';
 import { getToken } from './auth';
 
 const getReservations = () => async (dispatch) => {
