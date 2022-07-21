@@ -5,10 +5,10 @@ import { useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import { loginUser } from '../redux/actions/auth';
+import { loginUser } from '../../redux/actions/auth';
 import './registeration-form.css';
 import 'react-toastify/dist/ReactToastify.css';
-import logo from '../assets/Yacht-logo.svg';
+import logo from '../../assets/Yacht-logo.svg';
 
 const Login = ({ loggedIn }) => {
   if (loggedIn) return <Navigate to="/" replace />;

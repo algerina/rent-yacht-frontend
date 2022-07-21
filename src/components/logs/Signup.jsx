@@ -4,9 +4,9 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { signupUser } from '../redux/actions/auth';
+import { signupUser } from '../../redux/actions/auth';
 import './registeration-form.css';
-import logo from '../assets/Yacht-logo.svg';
+import logo from '../../assets/Yacht-logo.svg';
 
 const Signup = () => {
   const dispatch = useDispatch();

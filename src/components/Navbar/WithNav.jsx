@@ -7,7 +7,7 @@ function WithNav() {
   const { currentUser } = useSelector((state) => state.auth);
   return (
     <>
-      <Navbar currentUser={currentUser.role} />
+      <Navbar currentUserRole={currentUser.role} />
       <Outlet />
     </>
   );

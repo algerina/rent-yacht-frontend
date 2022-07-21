@@ -7,11 +7,6 @@
   font-size: 1.25rem;
 }
 
-.z1 {
-  position: absolute;
-  top: 10%;
-}
-
 .main {
   height: 100vh;
   display: flex;

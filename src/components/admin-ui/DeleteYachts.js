@@ -39,7 +39,7 @@ const DeleteYachts = () => {
     <main className="main">
       <div className="deleteYachts__header">
         <h1>Delete Yachts</h1>
-        <p>This are all our yachts</p>
+        <p>These are all our yachts</p>
         <hr />
       </div>
       <div className="effect" />
