@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="effect"
+  />
+  <div
+    className="showcase"
+  >
+    <div
+      className="logo"
+    >
+      <img
+        alt="logo"
+        src="Yacht-logo.svg"
+      />
+    </div>
+    <div
+      className="center"
+    >
+      <div
+        className=""
+      >
+        <h1
+          className=""
+        >
+          Sign Up
+        </h1>
+      </div>
+      <form
+        className="form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="inputbox"
+        >
+          <input
+            className=""
+            name="username"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Username"
+            type="text"
+          />
+          <span>
+            Username
+          </span>
+        </div>
+        <div
+          className="inputbox"
+        >
+          <input
+            className="name"
+            name="email"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Email"
+            type="email"
+          />
+          <span>
+            Email
+          </span>
+        </div>
+        <div
+          className="inputbox"
+        >
+          <input
+            className="score"
+            name="password"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+          />
+          <span>
+            Password
+          </span>
+        </div>
+        <div
+          className="submit"
+        >
+          <input
+            onClick={[Function]}
+            type="submit"
+            value="Submit"
+          />
+          <a
+            className="login"
+            href="/login"
+            onClick={[Function]}
+          >
+            Log In
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    className="Toastify"
+  />
+</div>
+`;
