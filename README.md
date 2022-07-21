@@ -9,14 +9,14 @@
 
 ![screenshot](./src/assets/Yacht-logo2.svg)
 
-
+<hr>
 
 ![screenshot](./src/assets/ReactApp1.png)
 
 ![screenshot](./src/assets/ReactApp2.png)
 
 
-
+<hr>
 ## Description
 
 > This is  a Web application where users should sign in to rent a Yacht from a list then reserve it for a determined period, users can then see their reservations or cancel them.
