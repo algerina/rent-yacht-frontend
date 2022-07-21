@@ -5,54 +5,27 @@ exports[`renders correctly 1`] = `
   className="main"
 >
   <div
-    className="background"
-  />
-  <div
-    className="foreground"
+    className="cards"
   >
-    <table
-      className="table table-hover"
+    <div
+      className="alert alert-danger"
+      role="alert"
     >
-      <thead
-        className="text-white bg-primary"
+      No reservation found, you can add a reservation from the
+       
+      <a
+        class="alert-link"
+        href="/"
+        onClick={[Function]}
       >
-        <tr>
-          <th
-            scope="col"
-          >
-            Yacht Name
-          </th>
-          <th
-            scope="col"
-          >
-            City
-          </th>
-          <th
-            scope="col"
-          >
-            Start Date
-          </th>
-          <th
-            scope="col"
-          >
-            Days
-          </th>
-          <th
-            scope="col"
-          >
-            Cost
-          </th>
-          <th
-            scope="col"
-          >
-            Actions
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        className="bg-white"
-      />
-    </table>
+        Home page
+      </a>
+       
+      by opening a specific yacht page
+    </div>
   </div>
+  <div
+    className="Toastify"
+  />
 </main>
 `;

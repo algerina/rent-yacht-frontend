@@ -149,5 +149,8 @@ exports[`renders correctly 1`] = `
       </div>
     </form>
   </div>
+  <div
+    className="Toastify"
+  />
 </main>
 `;
