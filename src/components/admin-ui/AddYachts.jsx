@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
 import './admin-ui.css';
 import { addYacht } from '../../redux/actions/yachtActions';
+
 function AddYachts() {
   const { reset } = useForm();
   const dispatch = useDispatch();

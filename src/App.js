@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
-import ProtectedRoutes from './components/ProtectedRoutes';
+import ProtectedRoutes from './ProtectedRoutes';
 import useAuth from './hooks/useAuth';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Signup = React.lazy(() => import('./components/Signup'));
-const Login = React.lazy(() => import('./components/Login'));
+const Signup = React.lazy(() => import('./components/logs/Signup'));
+const Login = React.lazy(() => import('./components/logs/Login'));
 const WithNav = React.lazy(() => import('./components/Navbar/WithNav'));
 const WithoutNav = React.lazy(() => import('./components/Navbar/WithoutNav'));
 const AddYachts = React.lazy(() => import('./components/admin-ui/AddYachts'));
