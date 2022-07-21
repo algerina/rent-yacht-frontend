@@ -1,65 +1,47 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate, Navigate } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { Container, Table, Button } from 'react-bootstrap';
+import { fetchYachts, deleteSingleYacht } from '../../redux/actions/yachtActions';
 import './admin-ui.css';
 
 const DeleteYachts = () => {
-  const [yachts, setYachts] = useState([]);
-  const { currentUser } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const { currentUser } = useSelector((state) => state.auth);
+  const { yachts } = useSelector((state) => state.yacht);
+  const [yachtsList, setYachtsList] = useState(yachts);
   if (currentUser.role !== 'admin') {
-    return <Navigate to="/" replace />;
+    navigate('/');
   }
-
-  const request = axios.create({
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: localStorage.getItem('token'),
-    },
-  });
-
   useEffect(() => {
-    // Get Yachts from API
-    request
-      .get('https://wishyacht-api.herokuapp.com/v1/yachts')
-      .then((response) => {
-        setYachts(response.data);
-      })
-      .catch((error) => error);
-  }, []);
-  // Delete Yachts from API
-
-  const handleDeleteYacht = (id) => (event) => {
-    event.preventDefault();
-
-    request
-      .delete(`https://wishyacht-api.herokuapp.com/v1/yachts/${id}`)
-      .then(() => {
-        const included = [...yachts].filter((yacht) => yacht.attributes.id !== id);
-        setYachts(included);
-        navigate('/delete');
-      })
-      .catch((error) => error);
+    if (yachts.length === 0) {
+      dispatch(fetchYachts());
+    }
+    setYachtsList(yachts);
+  }, [yachts]);
+  const handleDeleteYacht = (id) => {
+    dispatch(deleteSingleYacht(id));
+    const update = yachtsList.filter((yacht) => yacht.id !== id);
+    setYachtsList(update);
   };
-
-  const yachtList = yachts.map((yacht) => (
-    <tr key={yacht.attributes.name}>
+  const yachtRow = (yachts) => yachts.map((yacht) => (
+    <tr key={yacht.id}>
       <td className="fs125 d-flex justify-content-between px-5">
-        {yacht.attributes.name}
-        <Button type="button" variant="info" className="delete-yacht" onClick={handleDeleteYacht(yacht.attributes.id)}>
+        {yacht.name}
+        <Button type="button" variant="info" className="deleteYacht__button" onClick={() => handleDeleteYacht(yacht.id)}>
           Delete
         </Button>
       </td>
     </tr>
   ));
-
   return (
-    <main>
+    <main className="main">
+      <div className="deleteYachts__header">
+        <h1>Delete Yachts</h1>
+        <p>This are all our yachts</p>
+        <hr />
+      </div>
       <div className="effect" />
       <Container className="align-items-center justify-content-center z1">
         <Table
@@ -74,11 +56,10 @@ const DeleteYachts = () => {
               <th className="fs125 my-2">Yachts</th>
             </tr>
           </thead>
-          <tbody>{yachtList}</tbody>
+          <tbody>{yachtRow(yachtsList)}</tbody>
         </Table>
       </Container>
     </main>
   );
 };
-
 export default DeleteYachts;

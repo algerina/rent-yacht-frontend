@@ -6,14 +6,9 @@ import Logo from '../../assets/Yacht-logo2.svg';
 import HamburgerMenu from '../../assets/menu.svg';
 import CloseMenu from '../../assets/close.svg';
 
-function Navbar({ currentUser }) {
-  const navigate = useNavigate();
+function Navbar({ currentUserRole }) {
   const [isOpen, setIsOpen] = useState(false);
-  const headers = {
-    'Content-Type': 'application/json',
-    Authorization: localStorage.getItem('token'),
-  };
-
+  const navigate = useNavigate();
   const navLinks = [
     {
       id: useId(),
@@ -26,7 +21,6 @@ function Navbar({ currentUser }) {
       name: 'My reservations',
     },
   ];
-
   const adminLinks = [{
     id: useId(),
     path: '/add',
@@ -37,23 +31,13 @@ function Navbar({ currentUser }) {
     path: '/delete',
     name: 'Delete yacht',
   }];
-
-  const isAdmin = () => {
-    if (currentUser === 'admin') {
-      return true;
-    }
-    return false;
-  };
-
-  const openMenu = (event) => {
-    event.preventDefault();
-    setIsOpen(!isOpen);
-  };
-
   const handleLogout = async () => {
     const response = await fetch('https://wishyacht-api.herokuapp.com/logout', {
       method: 'delete',
-      headers,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
     });
     if (response.status === 200) {
       localStorage.removeItem('token');
@@ -61,30 +45,28 @@ function Navbar({ currentUser }) {
       navigate(0);
     }
   };
-
+  const renderNavAdminLinks = adminLinks.map(({ id, path, name }) => (
+    <li key={id}>
+      <NavLink to={path} onClick={() => setIsOpen(false)}>{name}</NavLink>
+    </li>
+  ));
   return (
     <>
       <div className={style.hamburgerMenu}>
-        <button className={style.hamburgerButton} onClick={(e) => openMenu(e)} type="button" id="menu-options">
+        <button className={style.hamburgerButton} onClick={() => setIsOpen(!isOpen)} type="button" id="menu-options">
           <img className={style.hamburgerImage} src={isOpen ? CloseMenu : HamburgerMenu} alt="logo" />
         </button>
       </div>
       <aside className={isOpen ? `${style.open} ${style.sidebar}` : `${style.sidebar}`}>
         <nav className={style.nav}>
-          <img src={Logo} alt="Yacht logo" className={style.logo} />
+          <img src={Logo} alt="Wishyacht logo" className={style.logo} />
           <ul>
             {navLinks.map(({ id, path, name }) => (
               <li key={id}>
                 <NavLink to={path} onClick={() => setIsOpen(false)}>{name}</NavLink>
               </li>
             ))}
-            {isAdmin()
-              ? adminLinks.map(({ id, path, name }) => (
-                <li key={id}>
-                  <NavLink to={path} onClick={() => setIsOpen(false)}>{name}</NavLink>
-                </li>
-              ))
-              : null}
+            { currentUserRole === 'admin' ? renderNavAdminLinks : null}
             <li>
               <button className={style.logoutButton} type="button" onClick={() => handleLogout()}>LOG OUT</button>
             </li>
@@ -94,13 +76,10 @@ function Navbar({ currentUser }) {
     </>
   );
 }
-
 export default Navbar;
-
 Navbar.defaultProps = {
-  currentUser: 'user',
+  currentUserRole: 'user',
 };
-
 Navbar.propTypes = {
-  currentUser: PropTypes.string,
+  currentUserRole: PropTypes.string,
 };
