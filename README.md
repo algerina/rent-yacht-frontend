@@ -71,7 +71,7 @@ Back-end
 
 ## Live demo
 
-[LiveDemo](https://62d85bdd46314705734cc8a9--wishyacht.netlify.app/)
+[LiveDemo](https://wishyacht.netlify.app)
 
 ## Getting Started
 
